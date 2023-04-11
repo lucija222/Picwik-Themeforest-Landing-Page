@@ -176,11 +176,7 @@ h6 {
 
 /*----------------------------RESPONSIVE WIDTH----------------------------*/
 /* DESKTOP */
-.width-responsive {
-    width: 100%;
-    max-width: 1140px;
-    margin: 0 15px;
-}
+
 
 /*-------------------------PADDING CLASSES-----------------------------*/
 .padding-flex {
@@ -191,9 +187,6 @@ h6 {
 /*--------------------------GENERAL STYLE PROPERTIES-------------------------------*/
 .text-center {
     text-align: center;
-}
-.no-underline {
-    text-decoration: none;
 }
 
 /*---------------------------------FLEX HEADER---------------------------------*/
@@ -223,155 +216,15 @@ h6 {
 
 /*---------------------------------FONT SIZE ---------------------------------*/
 
-.font-12 {
-    font-size: 12px;
-}
-.font-14 {
-    font-size: 14px;
-}
-.font-16 {
-    font-size: 16px;
-}
-
-.font-20 {
-    font-size: 20px;
-}
-
-.font-25 {
-    font-size: 25px;
-}
-
-.font-30 {
-    font-size: 30px;
-}
-
-.font-40 {
-    font-size: 40px;
-}
-
 /*---------------------------------6500+ section ---------------------------------*/
-
-.orange-6500 {
-    background: url(images/color_blobs/6500.png) center/contain no-repeat;
-    color: #f28202;
-    font-family: "Now";
-    font-weight: 600;
-    font-size: 40px;
-    margin: 0 10px 0;
-}
-
-.pink-200 {
-    background: url(images/color_blobs/200.png) center/contain no-repeat;
-    color: #e25f64;
-    font-family: "Now";
-    font-weight: 600;
-    font-size: 40px;
-    margin: 0 10px 0;
-}
-
-.green-100 {
-    background: url(images/color_blobs/100.png) center/contain no-repeat;
-    color: #3adc79;
-    font-family: "Now";
-    font-weight: 600;
-    font-size: 40px;
-    margin: 0 10px 0;
-}
 
 
 /*----------------FORM SECTION------------*/
-
-#form-section {
-    position: relative;
-    display: flex;
-    margin: 0 100px;
-    column-gap: 30px;
-}
-
-#form-section > div {
-    min-width: 0;
-}
-
-#form-section input {
-    width: 0;
-    min-width: 0;
-    flex: 1;
-    font: 16px "Segoe UI";
-}
-
-#form-left-column {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.form-left-box {
-    justify-content: center;
-    text-align: center;
-    margin: -70px 0 -70px;
-    padding: 80px 55px 80px;
-    box-shadow: 0px 28px 65px 0px rgb(188 188 188 / 25%);
-    background: url(images/form_section/form-background.jpg) top left no-repeat; /*VERTICAL BACKGROUND*/
-    max-width: 640px;
-    min-width: 0;
-    flex: 1;
-}
-
-.form-background-horizontal {
-    position: relative;
-    background: url(images/form_section/course-bg.jpg) center/cover no-repeat;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.form-background-horizontal::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #ffffffe8;
-}
-
-.select-button-margin {
-    margin-top: 80px;
-    margin-bottom: 80px;
-}
 
 .column-gap {
     column-gap: 30px;
 }
 
-.row-gap {
-    row-gap: 15px;
-}
-
-.input-box {
-    padding: 20px;
-    margin: 0 0 18px;
-    border: none;
-    border-radius: 4px;
-}
-
-.button-red-white {
-    display: inline-block;
-    color: #fff;
-    background: #d74d52;
-    padding: 18px 30px;
-    border: none;
-    width: fit-content;
-    border-radius: 4px;
-    font: 16px "Segoe UI";
-    font-weight: 800;
-}
-
-.form-paragraph {
-    margin: 0;
-    margin-top: 40px;
-    font: 30px "Now";
-    line-height: 45px;
-}
 
 .as-featured-in {
     margin: 60px 0;

@@ -404,10 +404,12 @@ main {
 
 .happy-clients {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0;
   margin-bottom: 120px;
   margin-top: 50px;
   align-items: center;
-  justify-content: space-around;
 }
 .happy-clients div {
   display: flex;
@@ -441,4 +443,130 @@ main {
 .green-blob {
   background: url(images/color_blobs/100.png) center/contain no-repeat;
   color: #3adc79;
+}
+
+.form-bg-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  position: relative;
+  background: url(images/form_section/course-bg.jpg) center/cover no-repeat;
+  width: 100%;
+}
+.form-bg-horizontal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9098039216);
+}
+
+.form-section {
+  position: relative;
+  display: flex;
+  margin: 0 100px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
+.form-section > div {
+  min-width: 0;
+}
+.form-section input {
+  flex: 1;
+  font: 16px "Segoe UI";
+}
+
+.form-left-column {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.form-left-box {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  margin: -70px 0 -70px;
+  padding: 80px 55px 80px;
+  box-shadow: 0px 28px 65px 0px rgba(188, 188, 188, 0.25);
+  background: url(images/form_section/form-background.jpg) top left no-repeat; /*VERTICAL BACKGROUND*/
+  max-width: 640px;
+  min-width: 0;
+}
+
+form h2 {
+  font-size: 30px;
+}
+
+.button-red-white {
+  display: inline-block;
+  color: #fff;
+  background: #d74d52;
+  padding: 18px 30px;
+  border: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 4px;
+  font: 16px "Segoe UI";
+  font-weight: 800;
+}
+
+.select-button-margin {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0;
+  flex-grow: 1;
+}
+.inputs-container div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
+.inputs-container div input {
+  padding: 20px;
+  margin: 0 0 18px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 28px 65px 0px rgba(188, 188, 188, 0.25);
+}
+
+.right-side-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+}
+
+.form-paragraph {
+  margin: 0;
+  margin-top: 40px;
+  font: 30px "Now";
+  line-height: 45px;
+}
+.form-paragraph + p {
+  margin: 60px 0;
+  font: 500 20px "Now";
+}
+.form-paragraph + p + div > img {
+  min-width: 0;
 }/*# sourceMappingURL=style.css.map */
