@@ -72,7 +72,7 @@ p {
   line-height: 160%;
 }
 
-.main-margin-mobile {
+.main-margin-mobile, .section-2000, .slider-text-container {
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -111,10 +111,9 @@ p {
   align-items: stretch;
   margin: 0;
   flex: 1;
-  overflow: auto;
   height: 100vh;
 } /*places scroll bar under black header*/
-.width-responsive {
+.width-responsive, .happy-clients, .online-coaching-section, .section-2000, .slider-text-container {
   width: 100%;
   max-width: 1140px;
   margin: 0 15px;
@@ -301,4 +300,145 @@ a.twitter:hover {
 
 a.search:hover {
   background: url(images/nav_icons/search-icon-pink.png) center/15px no-repeat;
+}
+
+.bg-slider {
+  background: url(images/main_slider/overlay.png) 69% no-repeat, url(images/main_slider/slider333.png) top center/100% no-repeat; /*top center/100% no-repeat*/ /*no-repeat center center/cover; */
+  background-size: auto, 1600px;
+}
+
+@media screen and (min-width: 1600px) {
+  .bg-slider {
+    background-size: auto, cover;
+  }
+}
+.bg-slider-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  min-height: 800px;
+}
+
+.slider-text-container {
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.header-paragraph {
+  font-family: "Now";
+  font-size: 20px;
+  margin-bottom: 60px;
+}
+
+.button-white-red {
+  display: inline-block;
+  background: #fff;
+  color: #d74d52;
+  padding: 18px 30px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 16px;
+}
+.button-white-red:hover {
+  color: #fff;
+  background: #d74d52;
+  padding: 18px 30px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.section-2000 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  text-align: center;
+  margin-top: 110px;
+}
+
+.red-link {
+  color: #d74d52;
+  font-weight: 800;
+}
+
+.red-link-none {
+  color: #d74d52;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.online-coaching-section {
+  display: flex;
+  margin-top: 60px;
+  row-gap: 25px;
+  -moz-column-gap: 25px;
+       column-gap: 25px;
+}
+.online-coaching-section article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  flex-grow: 1;
+  background: #fff;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  box-shadow: 0px 28px 65px 0px rgba(188, 188, 188, 0.25);
+  text-align: center;
+  justify-content: center;
+}
+.online-coaching-section article p {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+.online-coaching-section article a {
+  text-decoration: none;
+}
+
+.happy-clients {
+  display: flex;
+  margin-bottom: 120px;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: space-around;
+}
+.happy-clients div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0;
+  align-items: center;
+}
+.happy-clients div p:first-child {
+  font-family: "Now";
+  font-weight: 600;
+  font-size: 40px;
+  margin: 0 10px 0;
+}
+.happy-clients div p:nth-child(2) {
+  font-family: "Now";
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.orange-blob {
+  background: url(images/color_blobs/6500.png) center/contain no-repeat;
+  color: #f28202;
+}
+
+.pink-blob {
+  background: url(images/color_blobs/200.png) center/contain no-repeat;
+  color: #e25f64;
+}
+
+.green-blob {
+  background: url(images/color_blobs/100.png) center/contain no-repeat;
+  color: #3adc79;
 }/*# sourceMappingURL=style.css.map */

@@ -188,11 +188,6 @@ h6 {
     padding-right: 10%;
 }
 
-.padding-section-1 {
-    padding-top: 200px;
-    padding-bottom: 200px;
-}
-
 /*--------------------------GENERAL STYLE PROPERTIES-------------------------------*/
 .text-center {
     text-align: center;
@@ -212,70 +207,9 @@ h6 {
 
 /*---------------------------------HEADER SSECTION 1---------------------------------*/
 
-.button-white-red {
-    display: inline-block;
-    background: #fff;
-    color: #d74d52;
-    padding: 18px 30px;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 800;
-    font-size: 16px;
-}
-
-.button-white-red:hover {
-    color: #fff;
-    background: #d74d52;
-    padding: 18px 30px;
-}
-
-.background-image-1 {
-    background: url(images/main_slider/overlay.png) 69% no-repeat,
-        url(images/main_slider/slider333.png) top center/100% no-repeat; /*top center/100% no-repeat*/ /*no-repeat center center/cover; */
-    background-size: auto, 1600px;
-}
-
-@media screen and (min-width: 1600px) {
-    .background-image-1 {
-        background-size: auto, cover;
-    }
-}
-
-.background-image-1-section {
-    min-height: 800px;
-}
-
-.header-paragraph {
-    font-family: "Now";
-    font-size: 20px;
-    margin-bottom: 60px;
-}
-
-.red-link {
-    color: #d74d52;
-    font-weight: 800;
-}
-
-.red-link-none {
-    color: #d74d52;
-    font-weight: 800;
-    text-decoration: none;
-}
-
 /*---------------------SINCE 2000 SECTION  */
-.section-2000 {
-    justify-content: center;
-    text-align: center;
-    margin-top: 110px;
-}
-
 /* -------------------ONLINE COACHING SECTION */
-.online-coaching-section {
-    display: flex;
-    margin-top: 60px;
-    row-gap: 25px;
-    column-gap: 25px;
-}
+
 
 .margin-right {
     margin-right: 25px;
@@ -285,20 +219,7 @@ h6 {
     box-shadow: 0px 28px 65px 0px rgb(188 188 188 / 25%);
 }
 
-.inner-padding {
-    padding-left: 25px;
-    padding-right: 25px;
-}
 
-.online-article-style {
-    background: #fff;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    box-shadow: 0px 28px 65px 0px rgb(188 188 188 / 25%);
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
 
 /*---------------------------------FONT SIZE ---------------------------------*/
 
@@ -329,11 +250,6 @@ h6 {
 }
 
 /*---------------------------------6500+ section ---------------------------------*/
-.text-6500 {
-    font-family: "Now";
-    font-weight: 500;
-    font-size: 20px;
-}
 
 .orange-6500 {
     background: url(images/color_blobs/6500.png) center/contain no-repeat;
@@ -362,13 +278,6 @@ h6 {
     margin: 0 10px 0;
 }
 
-.section-6500 {
-    display: flex;
-    margin-bottom: 120px;
-    margin-top: 50px;
-    align-items: center;
-    justify-content: space-around;
-}
 
 /*----------------FORM SECTION------------*/
 

@@ -73,8 +73,10 @@ p {
 }
 
 .main-margin-mobile {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: {
+        left: 20px;
+        right: 20px;
+    }
 }
 
 //---------------------------------FLEX
@@ -126,7 +128,7 @@ p {
 .flex-container {
     @include display-flex(column, stretch);
     flex: 1;
-    overflow: auto;
+    // overflow: auto;
     height: 100vh;
 } /*places scroll bar under black header*/
 
@@ -180,7 +182,7 @@ header nav ul > li > a {
 
 #nav-margin {
     margin: auto;
-    margin-top: 20px; //added because nav was too high - check later 
+    margin-top: 20px; //added because nav was too high - check later
 }
 
 nav {
@@ -322,4 +324,155 @@ a.twitter:hover {
 }
 a.search:hover {
     background: url(images/nav_icons/search-icon-pink.png) center/15px no-repeat;
+}
+
+//------------------------SLIDER IN HEADER
+.bg-slider {
+    background: url(images/main_slider/overlay.png) 69% no-repeat,
+        url(images/main_slider/slider333.png) top center/100% no-repeat; /*top center/100% no-repeat*/ /*no-repeat center center/cover; */
+    background-size: auto, 1600px;
+}
+
+@media screen and (min-width: 1600px) {
+    .bg-slider {
+        background-size: auto, cover;
+    }
+}
+
+.bg-slider-section {
+    @include display-flex(column, center);
+    min-height: 800px;
+}
+
+.slider-text-container {
+    @extend .width-responsive;
+    @extend .main-margin-mobile;
+    padding: {
+        top: 200px;
+        bottom: 200px;
+    }
+}
+
+.header-paragraph {
+    font-family: "Now";
+    font-size: 20px;
+    margin-bottom: 60px;
+}
+
+.button-white-red {
+    display: inline-block;
+    background: #fff;
+    color: #d74d52;
+    padding: 18px 30px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 16px;
+
+    &:hover {
+        color: #fff;
+        background: #d74d52;
+        padding: 18px 30px;
+    }
+}
+
+//-----------------------------------------MAIN
+main {
+    @include display-flex(column, center);
+}
+
+//------------------Section 2000
+.section-2000 {
+    @include display-flex(row, center);
+    @extend .width-responsive;
+    @extend .main-margin-mobile;
+    text-align: center;
+    margin-top: 110px;
+}
+
+.red-link {
+    color: #d74d52;
+    font-weight: 800;
+}
+
+.red-link-none {
+    color: #d74d52;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+//-----------------Online coaching section
+.online-coaching-section {
+    @extend .width-responsive;
+    display: flex;
+    margin-top: 60px;
+    row-gap: 25px;
+    column-gap: 25px;
+
+    article {
+        @include display-flex(column, center);
+        flex-grow: 1;
+        background: #fff;
+        padding: {
+            top: 50px;
+            bottom: 50px;
+        }
+        box-shadow: 0px 28px 65px 0px rgb(188 188 188 / 25%);
+        text-align: center;
+        justify-content: center; //CHECK THIS LATER
+
+        p {
+            padding: {
+                right: 25px;
+                left: 25px;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+//-----------------------------------HAPPY CLIENTS SECTION
+.happy-clients {
+    @extend .width-responsive;
+    display: flex;
+    margin-bottom: 120px;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: space-around;
+
+    div {
+        @include display-flex(row, space-evenly);
+        align-items: center;
+
+        p:first-child {
+            font-family: "Now";
+            font-weight: 600;
+            font-size: 40px;
+            margin: 0 10px 0;
+        }
+
+        p:nth-child(2) {
+            font-family: "Now";
+            font-weight: 500;
+            font-size: 20px;
+        }
+    }
+}
+
+.orange-blob {
+    background: url(images/color_blobs/6500.png) center/contain no-repeat;
+    color: #f28202;
+}
+
+.pink-blob {
+    background: url(images/color_blobs/200.png) center/contain no-repeat;
+    color: #e25f64;
+}
+
+.green-blob {
+    background: url(images/color_blobs/100.png) center/contain no-repeat;
+    color: #3adc79;
 }
