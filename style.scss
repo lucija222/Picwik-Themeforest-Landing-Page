@@ -1,0 +1,325 @@
+//-----------------------------------FONTS
+@mixin font-faces($family, $src, $weight, $style) {
+    font-family: $family;
+    src: url($src);
+    font-weight: $weight;
+    font-style: $style;
+}
+
+@font-face {
+    @include font-faces("Segoe UI", "fonts/SegoeUI.woff2", normal, normal);
+}
+
+@font-face {
+    @include font-faces("Segoe UI", "fonts/SegoeUI-Bold.woff2", bold, normal);
+}
+
+@font-face {
+    @include font-faces("Now", "fonts/Now-Regular.woff2", normal, normal);
+}
+
+@font-face {
+    @include font-faces("Now", "fonts/Now-Medium.woff2", 500, normal);
+}
+
+@font-face {
+    @include font-faces("Now", "fonts/Now-Bold.woff2", bold, normal);
+}
+
+//------------------------------------GENERAL
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    background: #fff;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 16px;
+
+    * a {
+        color: #192836;
+    }
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Now";
+    font-weight: 500;
+}
+
+.h1 {
+    font-size: 40px;
+}
+
+.h2 {
+    color: #262626;
+    font-size: 30px;
+    line-height: 45px;
+}
+
+.h3 {
+    font-size: 20px;
+}
+
+p {
+    line-height: 160%;
+}
+
+.main-margin-mobile {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+//---------------------------------FLEX
+@mixin display-flex($direction, $styling) {
+    display: flex;
+    flex-direction: $direction;
+    @if $direction == row {
+        justify-content: $styling;
+    } @else if $direction == column {
+        align-items: $styling;
+    }
+    margin: 0;
+}
+
+//---------------------------------BLACK HEADER
+.black-header {
+    background: #262626;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.evanto-market {
+    margin: {
+        top: 17px;
+        bottom: 8px;
+        left: 15px;
+    }
+    padding-top: 1px;
+}
+
+.button-white-green {
+    background: #82b440;
+    color: #fff;
+    padding: 7px 20px;
+    border-radius: 4px;
+    margin: {
+        top: 13px;
+        right: 15px;
+        bottom: 10px;
+    }
+    font-size: 14px;
+    float: right;
+    text-decoration: none;
+}
+
+//-------------------------MAIN FLEX CONTAINER
+.flex-container {
+    @include display-flex(column, stretch);
+    flex: 1;
+    overflow: auto;
+    height: 100vh;
+} /*places scroll bar under black header*/
+
+//----------------------CLASS FOR EXTENDING
+.width-responsive {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 15px;
+}
+
+//-------------------------HEADER/NAVIGATION
+header {
+    z-index: 100; /*So that "go to top" arrow falls under it*/
+
+    * a {
+        display: inline-block;
+        text-decoration: none;
+        color: black;
+    } /*REMOVES ENTIRE HEADER TEXT-DECORATION*/
+
+    + div {
+        margin-top: 25px;
+        background-color: #f5f8fb;
+    }
+}
+
+header nav ul > li > a {
+    transition: color 0.5s ease-in-out;
+
+    &:hover {
+        color: #d74d52;
+        position: relative;
+
+        &::before {
+            /*::before is a child elemeent here, like -space div instead of ::beforfe- */
+            width: 50%;
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        background: #d74d52;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        width: 0;
+        transition: width 0.5s ease-in-out;
+    }
+}
+
+#nav-margin {
+    margin: auto;
+    margin-top: 20px; //added because nav was too high - check later 
+}
+
+nav {
+    @include display-flex(row, space-evenly);
+    align-items: center;
+    font-size: 14px;
+    font-weight: 800;
+
+    > a {
+        @include display-flex(row, space-evenly);
+        z-index: 1;
+        transform: translate(0, 29px);
+
+        + ul {
+            @include display-flex(row, space-evenly);
+            flex-grow: 3;
+            margin: {
+                top: 25px;
+                right: 60px;
+                left: 60px;
+            }
+            padding-top: 10px;
+        }
+    }
+}
+
+nav ul {
+    padding-left: 0;
+
+    > li {
+        display: inline-block;
+        list-style: none;
+    }
+
+    :nth-of-type(2) {
+        > li > a {
+            width: 20px;
+            height: 20px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+
+        > li:last-of-type {
+            margin-left: 30px;
+        }
+    }
+}
+
+//Dropdown menu
+.dropdown-wrapper {
+    position: relative;
+
+    &a::before {
+        right: 13px; /*So underline eff*/
+    }
+}
+
+.dropdown-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background: #f5f8fb;
+    min-width: 138px;
+    padding: 32px 0 10px;
+
+    > ul {
+        @include display-flex(column, stretch);
+
+        > li {
+            padding: 5px 20px;
+        }
+    }
+}
+
+.dropdown-wrapper:hover .dropdown-list {
+    display: flex;
+}
+
+//Hamburger menu
+.hamburger {
+    display: none;
+    flex-grow: 3;
+    margin: {
+        top: 25px;
+        right: 60px;
+        left: 60px;
+    }
+    padding-top: 10px;
+}
+
+.hamburger-icon {
+    width: 20px;
+    height: 20px;
+    background: url(images/nav_icons/nav-short.png) center center/contain
+        no-repeat;
+
+    &:hover {
+        background-image: url(images/nav_icons/nav-short-pink.png);
+    }
+}
+
+//Social media icons
+.social-media-list {
+    @include display-flex(row, flex-start);
+    margin-top: 25px;
+    padding-top: 10px;
+}
+
+.instagram {
+    background: url(images/nav_icons/instagram.png) center/15px no-repeat;
+}
+a.instagram:hover {
+    background: url(images/nav_icons/instagram-pink.png) center/15px no-repeat;
+}
+
+.facebook {
+    background: url(images/nav_icons/facebook.png) center/15px no-repeat;
+}
+a.facebook:hover {
+    background: url(images/nav_icons/facebook-pink.png) center/15px no-repeat;
+}
+
+.google {
+    background: url(images/nav_icons/google.png) center/13px no-repeat;
+}
+a.google:hover {
+    background: url(images/nav_icons/google-pink.png) center/13px no-repeat;
+}
+
+.twitter {
+    background: url(images/nav_icons/twitter.png) center/15px no-repeat;
+}
+a.twitter:hover {
+    background: url(images/nav_icons/twitter-pink.png) center/15px no-repeat;
+}
+
+.search {
+    background: url(images/nav_icons/search-icon.png) center/15px no-repeat;
+}
+a.search:hover {
+    background: url(images/nav_icons/search-icon-pink.png) center/15px no-repeat;
+}
