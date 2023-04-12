@@ -5,3 +5,8 @@
 5) Have to add 2 image sliders (top and bottom)
 6) Have to add hover effects on bottom gallery
 7) Make the hover effects on nav stick once element is selected
+8) Rewrite CSS to SASS ------ DONE
+9) Fix 'Visit us' section box ------ DONE
+10) Find up and side arrows same as original
+11) Fix positioning of overlay effect on slider ------ DONE
+12) Fix social media icons not displaying 
