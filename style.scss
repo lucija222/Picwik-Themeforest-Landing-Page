@@ -26,6 +26,12 @@
     @include font-faces("Now", "fonts/Now-Bold.woff2", bold, normal);
 }
 
+
+//------------------------------------VARIABLES
+$base-pink: #D74D52;
+$white: #fff;
+$dark-gray: #262626;
+
 //------------------------------------GENERAL
 *,
 *::after,
@@ -34,7 +40,7 @@
 }
 
 html {
-    background: #fff;
+    background: $white;
 }
 
 body {
@@ -59,7 +65,7 @@ h3 {
 }
 
 .h2 {
-    color: #262626;
+    color: $dark-gray;
     font-size: 30px;
     line-height: 45px;
 }
@@ -93,7 +99,7 @@ p {
 
 //---------------------------------BLACK HEADER
 .black-header {
-    background: #262626;
+    background: $dark-gray;
     position: fixed;
     top: 0;
     width: 100%;
@@ -112,7 +118,7 @@ p {
 .button-white-green {
     background: #82b440;
     box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25);
-    color: #fff;
+    color: $white;
     padding: 7px 20px;
     border-radius: 4px;
     margin: {
@@ -161,7 +167,7 @@ header nav ul > li > a {
     position: relative;
 
     &:hover {
-        color: #d74d52;
+        color: $base-pink;
 
         &::before {
             /*::before is a child elemeent here, like -space div instead of ::beforfe- */
@@ -172,7 +178,7 @@ header nav ul > li > a {
     &:before {
         content: "";
         position: absolute;
-        background: #d74d52;
+        background: $base-pink;
         right: 0;
         bottom: 0;
         height: 2px;
@@ -364,8 +370,8 @@ a.search:hover {
 
 .button-white-red {
     display: inline-block;
-    background: #fff;
-    color: #d74d52;
+    background: $white;
+    color: $base-pink;
     padding: 18px 30px;
     text-decoration: none;
     border-radius: 4px;
@@ -373,8 +379,8 @@ a.search:hover {
     font-size: 16px;
 
     &:hover {
-        color: #fff;
-        background: #d74d52;
+        color: $white;
+        background: $base-pink;
         padding: 18px 30px;
     }
 }
@@ -393,14 +399,14 @@ main {
     margin-top: 110px;
 
     h2 {
-        color: #262626;
+        color: $dark-gray;
         font-size: 30px;
         line-height: 45px;
     }
 }
 
 .red-link {
-    color: #d74d52;
+    color: $base-pink;
     font-weight: 800;
 }
 
@@ -432,7 +438,7 @@ main {
 .online-coaching_article {
     @include display-flex(column, center);
     flex-grow: 1;
-    background: #fff;
+    background: $white;
     padding: {
         top: 50px;
         bottom: 50px;
@@ -454,7 +460,7 @@ main {
         transform: translateY(-25px);
 
         h3 {
-            color: #d74d52;
+            color: $base-pink;
         }
 
         img {
@@ -570,8 +576,8 @@ form h2 {
 
 .button-red-white {
     display: inline-block;
-    color: #fff;
-    background: #d74d52;
+    color: $white;
+    background: $base-pink;
     padding: 18px 30px;
     border: none;
     width: fit-content;
@@ -682,7 +688,7 @@ form h2 {
                 + a {
                     display: inline-block;
                     text-decoration: none;
-                    color: #d74d52;
+                    color: $base-pink;
                     background: #f8dfe0;
                     padding: 2px 9px;
                     font-size: 14px;
@@ -770,25 +776,25 @@ form h2 {
 .visit-section {
     @include display-flex(column, stretch);
     position: relative;
-    // padding: 0 50px 50px;
+    padding: 0 40px 100px 30px;
     font-size: 20px;
     font-weight: 600;
-    max-width: 650px;
-    padding: 0 40px 100px 30px;
+    max-width: 660px;
     box-shadow: 0px 28px 65px 0px rgb(188 188 188 / 25%);
     margin: {
         top: 70px;
         right: 55px;
     }
-    background: #fff;
+    background: $white;
     z-index: 1;
+    row-gap: 30px;
 
-    > div {
+    div:first-child {
         @include display-flex(row, center); //HAVE TO FIX THIS -- VISIT BOX
 
         > h2 {
-            color: #fff;
-            background: #d74d52;
+            color: $white;
+            background: $base-pink;
             padding: 30px 50px;
             margin-bottom: 70px;
             margin-top: 0;
@@ -832,6 +838,7 @@ form h2 {
 
 .princeton {
     font: 500 20px/30px "Now";
+    margin: 0;
 }
 
 .learn-link {
@@ -841,8 +848,9 @@ form h2 {
 }
 
 .learn-upper {
-    margin-top: -10px;
-    margin-bottom: 50px;
+    // margin-top: -10px;
+    // margin-bottom: 50px;
+    margin: 10px 0 0;
 }
 
 .learn-down {
@@ -858,7 +866,7 @@ form h2 {
     }
 
     a {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
@@ -896,7 +904,7 @@ footer {
                 display: inline-block;
 
                 &:hover {
-                    color: #d74d52;
+                    color: $base-pink;
                 }
             }
         }
