@@ -111,6 +111,7 @@ p {
 
 .button-white-green {
     background: #82b440;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25);
     color: #fff;
     padding: 7px 20px;
     border-radius: 4px;
@@ -157,10 +158,10 @@ header {
 
 header nav ul > li > a {
     transition: color 0.5s ease-in-out;
+    position: relative;
 
     &:hover {
         color: #d74d52;
-        position: relative;
 
         &::before {
             /*::before is a child elemeent here, like -space div instead of ::beforfe- */
@@ -235,7 +236,7 @@ nav ul {
 .dropdown-wrapper {
     position: relative;
 
-    &a::before {
+    > a::before {
         right: 13px; /*So underline eff*/
     }
 }
@@ -289,6 +290,10 @@ nav ul {
     @include display-flex(row, flex-start);
     margin-top: 25px;
     padding-top: 10px;
+
+    // a:hover::before {
+    //     width: 0;
+    // }
 }
 
 .instagram {
@@ -333,12 +338,6 @@ a.search:hover {
     background-size: auto, 1600px;
 }
 
-@media screen and (min-width: 1600px) {
-    .bg-slider {
-        background-size: auto, cover;
-    }
-}
-
 .bg-slider-section {
     @include display-flex(column, center);
     min-height: 800px;
@@ -350,6 +349,10 @@ a.search:hover {
     padding: {
         top: 200px;
         bottom: 200px;
+    }
+
+    h1 {
+        font-size: 40px;
     }
 }
 
@@ -388,6 +391,12 @@ main {
     @extend .main-margin-mobile;
     text-align: center;
     margin-top: 110px;
+
+    h2 {
+        color: #262626;
+        font-size: 30px;
+        line-height: 45px;
+    }
 }
 
 .red-link {
@@ -396,8 +405,7 @@ main {
 }
 
 .red-link-none {
-    color: #d74d52;
-    font-weight: 800;
+    @extend .red-link;
     text-decoration: none;
 }
 
@@ -409,27 +417,48 @@ main {
     row-gap: 25px;
     column-gap: 25px;
 
-    article {
-        @include display-flex(column, center);
-        flex-grow: 1;
-        background: #fff;
+    p {
         padding: {
-            top: 50px;
-            bottom: 50px;
+            right: 25px;
+            left: 25px;
         }
-        box-shadow: 0px 28px 65px 0px rgb(188 188 188 / 25%);
-        text-align: center;
-        justify-content: center; //CHECK THIS LATER
+    }
 
-        p {
-            padding: {
-                right: 25px;
-                left: 25px;
-            }
+    a {
+        text-decoration: none;
+    }
+}
+
+.online-coaching_article {
+    @include display-flex(column, center);
+    flex-grow: 1;
+    background: #fff;
+    padding: {
+        top: 50px;
+        bottom: 50px;
+    }
+    box-shadow: 0px 28px 65px 0px rgb(188 188 188 / 25%);
+    text-align: center;
+    justify-content: center; //CHECK THIS LATER
+    transition: transform 0.5s ease-in-out;
+
+    h3 {
+        transition: color 0.5s ease-in-out;
+    }
+
+    img {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    &:hover {
+        transform: translateY(-25px);
+
+        h3 {
+            color: #d74d52;
         }
 
-        a {
-            text-decoration: none;
+        img {
+            transform: scale(1.1);
         }
     }
 }
@@ -438,9 +467,12 @@ main {
 .happy-clients {
     @extend .width-responsive;
     @include display-flex(row, space-around);
-    margin-bottom: 120px;
-    margin-top: 50px;
     align-items: center;
+    margin: {
+        top: 80px;
+        bottom: 150px;
+        left: 60px;
+    }
 
     div {
         @include display-flex(row, space-evenly);
@@ -596,4 +628,447 @@ form h2 {
     }
 }
 
+//------------------------RECENT COURSES SECTION
+.recent-courses-section {
+    @include display-flex(column, stretch);
+    @extend .width-responsive;
+    align-items: center;
+    margin-top: 120px;
 
+    > h2 {
+        font-size: 30px;
+
+        + p {
+            text-align: center;
+            max-width: 685px;
+            margin-bottom: 80px;
+        }
+    }
+}
+
+.cards-container {
+    @extend .width-responsive;
+    display: flex;
+    font-weight: 500;
+    column-gap: 30px;
+    row-gap: 30px;
+
+    article {
+        @include display-flex(column, stretch);
+        flex: 1;
+        min-width: 0;
+        box-shadow: 0px 28px 65px 0px rgb(188 188 188 / 25%);
+
+        img {
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        div {
+            padding: 30px 30px 50px;
+
+            p {
+                padding-top: 20px;
+                padding-bottom: 20px;
+
+                > a {
+                    text-decoration: none;
+                    color: black;
+                    font-family: "Now";
+                    font-weight: 500;
+                    font-size: 20px;
+                }
+
+                + a {
+                    display: inline-block;
+                    text-decoration: none;
+                    color: #d74d52;
+                    background: #f8dfe0;
+                    padding: 2px 9px;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+.cards-container {
+    .image-mask {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    article:hover img {
+        transform: scale(1.5);
+    }
+}
+
+.green-underline {
+    font-size: 30px;
+    position: relative;
+    font-weight: 600;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        height: 10px;
+        left: 0;
+        right: -15px;
+        background-color: #39e17b;
+        z-index: 0;
+    }
+
+    > span {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+//-------------------------------TEACHER/VIDEO SECTION
+.teacher-section {
+    @include display-flex(column, stretch);
+    @extend .width-responsive;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 70px;
+
+    > h3 {
+        font-size: 20px;
+    }
+
+    &-bg {
+        background: url(images/quote.png) center no-repeat;
+        margin-bottom: 40px;
+        font-size: 30px;
+    }
+}
+
+.twitter-margin {
+    margin-left: 10px; //CHECK THIS LATER
+}
+
+.visit-section-wrapper {
+    @extend .width-responsive;
+    @include display-flex(column, flex-end);
+    position: relative;
+
+    + div {
+        @include display-flex(row, space-evenly);
+        @extend .width-responsive;
+
+        > img {
+            //instagram logo
+            margin-top: 80px;
+            margin-bottom: 100px;
+            width: 200px;
+        }
+    }
+}
+
+.visit-section {
+    @include display-flex(column, stretch);
+    position: relative;
+    // padding: 0 50px 50px;
+    font-size: 20px;
+    font-weight: 600;
+    max-width: 650px;
+    padding: 0 40px 100px 30px;
+    box-shadow: 0px 28px 65px 0px rgb(188 188 188 / 25%);
+    margin: {
+        top: 70px;
+        right: 55px;
+    }
+    background: #fff;
+    z-index: 1;
+
+    > div {
+        @include display-flex(row, center); //HAVE TO FIX THIS -- VISIT BOX
+
+        > h2 {
+            color: #fff;
+            background: #d74d52;
+            padding: 30px 50px;
+            margin-bottom: 70px;
+            margin-top: 0;
+            font: 400 30px "Segoe UI";
+        }
+    }
+
+    p {
+        margin-top: 0;
+    }
+
+    &-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 0;
+
+        img {
+            vertical-align: bottom;
+            width: 100%;
+        }
+    }
+}
+
+.visit-row {
+    @include display-flex(row, flex-start);
+    align-items: flex-start;
+
+    div {
+        @include display-flex(column, stretch);
+    }
+}
+
+.clock {
+    margin-right: 37px;
+}
+
+.gps {
+    margin-right: 30px;
+}
+
+.princeton {
+    font: 500 20px/30px "Now";
+}
+
+.learn-link {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.learn-upper {
+    margin-top: -10px;
+    margin-bottom: 50px;
+}
+
+.learn-down {
+    margin-top: -10px;
+}
+
+.view-map {
+    margin: auto;
+    margin-top: 10px;
+
+    span {
+        margin-right: 5px;
+    }
+
+    a {
+        font-size: 14px;
+    }
+}
+
+//--------------------------------GALLERY
+.image-strip {
+    @include display-flex(row, space-evenly);
+    width: 100%;
+
+    img {
+        min-width: 0;
+        flex: 1;
+    }
+}
+
+//--------------------------------FOOTER
+footer {
+    @extend .width-responsive;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+
+    div > img {
+        width: 147px;
+    }
+
+    ul {
+        padding: 0;
+
+        > li {
+            list-style: none;
+            display: inline-block;
+
+            > a {
+                text-decoration: none;
+                display: inline-block;
+
+                &:hover {
+                    color: #d74d52;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    p {
+        flex: 1;
+    }
+
+    div {
+        @include display-flex(row, center);
+        flex: 1;
+    }
+
+    ul {
+        @include display-flex(row, space-evenly);
+        flex: 1;
+    }
+}
+
+//----------------------------NAVIGATION ARROW
+.fixed {
+    position: fixed;
+    bottom: 80px;
+    right: 50px;
+    z-index: 99; /*so it disappears under header?*/
+}
+
+//---------------------------MEDIA QUERIES
+@media screen and (min-width: 1600px) {
+    //CHECK THIS QUERY
+    .bg-slider {
+        background-size: auto, cover;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .width-responsive {
+        max-width: 960px;
+    }
+
+    nav ul:nth-of-type(2) > li:last-of-type {
+        margin-left: 0;
+    }
+
+    .visit-section {
+        width: 540px;
+    }
+
+    #img1 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .width-responsive {
+        max-width: 720px;
+    }
+
+    nav ul:nth-of-type(1) {
+        display: none;
+    }
+
+    #hamburger {
+        display: flex;
+        justify-content: center;
+        height: 30px;
+    }
+
+    .section-6500 {
+        margin-bottom: 60px;
+    }
+
+    #form-section {
+        flex-direction: column;
+        margin: 0 15px;
+    }
+
+    #form-left-column {
+        justify-content: center;
+    }
+
+    .form-background-horizontal {
+        background-position-y: top;
+        background-size: auto;
+    }
+
+    .form-left-box {
+        margin-top: 100px;
+        margin-bottom: 30px;
+    }
+
+    .visit-section {
+        width: 440px;
+        margin-right: 0;
+    }
+
+    #img1 {
+        display: none;
+    }
+
+    #img4 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .width-responsive {
+        max-width: 540px;
+    }
+
+    .online-coaching-section {
+        flex-direction: column;
+    }
+
+    .section-6500 {
+        flex-direction: column;
+        row-gap: 30px;
+        align-items: flex-start;
+    }
+
+    .recent-cards {
+        flex-direction: column;
+    }
+
+    .visit-section-background {
+        width: 510px;
+        position: static;
+    }
+
+    .visit-section {
+        width: 510px;
+        margin: 0;
+    }
+
+    #form-section .flex-row {
+        flex-direction: column;
+    }
+
+    #form-section .input-box {
+        width: auto;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+        padding: 30px 0;
+    }
+
+    footer ul {
+        align-self: stretch;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .width-responsive {
+        max-width: initial;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    #img1 {
+        display: none;
+    }
+
+    #img3 {
+        display: none;
+    }
+
+    #img4 {
+        display: none;
+    }
+}

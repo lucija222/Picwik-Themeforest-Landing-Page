@@ -237,80 +237,9 @@ h6 {
 }
 
 /*--------------------------------------RECENT COURSES SECTION  */
-.green-underline {
-    font-size: 30px;
-    position: relative;
-    font-weight: 600;
-}
-
-.green-underline::before {
-    content: "";
-    position: absolute;
-    bottom: 5px;
-    height: 10px;
-    left: 0;
-    right: -15px;
-    background-color: #39e17b;
-    z-index: 0;
-}
-
-.green-underline > span {
-    position: relative;
-    z-index: 1;
-}
-
-.decoration-none-black {
-    text-decoration: none;
-    color: black;
-    font-family: "Now";
-    font-weight: 500;
-    font-size: 20px;
-}
-
-.decoration-none-pink {
-    display: inline-block;
-    text-decoration: none;
-    color: #d74d52;
-    background: #f8dfe0;
-    padding: 2px 9px;
-    font-size: 14px;
-    font-weight: 600;
-}
 
 .margin-left-col {
     margin-left: 30px;
-}
-
-.recent-paragraph {
-    text-align: center;
-    max-width: 685px;
-    margin-bottom: 80px;
-}
-
-.recent-main {
-    align-items: center;
-    margin-top: 120px;
-}
-
-.recent-cards {
-    display: flex;
-    font-weight: 500;
-    column-gap: 30px;
-    row-gap: 30px;
-}
-
-.recent-cards article {
-    flex: 1;
-    min-width: 0;
-}
-
-.padding-courses {
-    padding: 30px 30px 50px;
-}
-
-.padding-t-b {
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 
 /*-----------------------------4 IMAGES AT END  */
@@ -325,140 +254,17 @@ h6 {
 
 /*--------------------------------TEACHERS SECTION ABOVE INSTAGRAM  */
 
-.teacher-style {
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 70px;
-}
-
-.teacher-background {
-    background: url(images/quote.png) center no-repeat;
-    margin-bottom: 40px;
-    font-size: 30px;
-}
-
-.twitter-margin {
-    margin-left: 20px;
-}
-
 /*--------------------------------VISIT US SECTION  */
-.red-white-box {
-    color: #fff;
-    background: #d74d52;
-    padding: 30px 50px;
-    margin-bottom: 70px;
-    margin-top: 0;
-    font: 400 30px "Segoe UI";
-}
-
-.visit-section-wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.visit-section-background {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 0;
-}
-
-.visit-section {
-    position: relative;
-    padding: 0 50px 50px;
-    font-size: 20px;
-    font-weight: 600;
-    max-width: 650px;
-    padding: 0 40px 100px 30px;
-    box-shadow: 0px 28px 65px 0px rgb(188 188 188 / 25%);
-    margin-top: 70px;
-    margin-right: 55px;
-    background: #fff;
-    z-index: 1;
-}
-
-.visit-section-background img {
-    vertical-align: bottom;
-    width: 100%;
-}
-
-.visit-section p {
-    margin-top: 0;
-}
-
-.clock {
-    margin-right: 37px;
-}
-
-.gps {
-    margin-right: 30px;
-}
-
-.princeton {
-    font: 500 20px/30px "Now";
-}
-
-.learn-link {
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 800;
-}
-
-.learn-upper {
-    margin-top: -10px;
-    margin-bottom: 50px;
-}
-
-.learn-down {
-    margin-top: -10px;
-}
-
-.view-map {
-    margin: auto;
-    margin-top: 10px;
-}
 
 .border {
     border: solid 4px black;
 }
 
 /*--------------------------INSTAGRAM IMAGE*/
-.instagram-image {
-    margin-top: 80px;
-    margin-bottom: 100px;
-    width: 200px;
-}
+
 
 /*---------------------------------------FOOTER  */
-footer {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-}
 
-footer ul {
-    padding: 0;
-}
-
-footer ul > li {
-    list-style: none;
-    display: inline-block;
-}
-
-footer ul > li > a {
-    text-decoration: none;
-    display: inline-block;
-}
-
-footer ul > li > a:hover {
-    color: #d74d52;
-}
-
-footer div > img {
-    width: 147px;
-}
 
 /*----------------------GO TO TOP ARROW  */
 

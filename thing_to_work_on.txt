@@ -4,4 +4,4 @@
 4) Have to switch dropdown menu to work with JS 
 5) Have to add 2 image sliders (top and bottom)
 6) Have to add hover effects on bottom gallery
-7) Rewrite CSS to SASS
+7) Make the hover effects on nav stick once element is selected

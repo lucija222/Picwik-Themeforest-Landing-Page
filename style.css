@@ -94,6 +94,7 @@ p {
 
 .button-white-green {
   background: #82b440;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25);
   color: #fff;
   padding: 7px 20px;
   border-radius: 4px;
@@ -113,7 +114,7 @@ p {
   flex: 1;
   height: 100vh;
 } /*places scroll bar under black header*/
-.width-responsive, .happy-clients, .online-coaching-section, .section-2000, .slider-text-container {
+.width-responsive, footer, .visit-section-wrapper + div, .visit-section-wrapper, .teacher-section, .cards-container, .recent-courses-section, .happy-clients, .online-coaching-section, .section-2000, .slider-text-container {
   width: 100%;
   max-width: 1140px;
   margin: 0 15px;
@@ -135,10 +136,10 @@ header + div {
 
 header nav ul > li > a {
   transition: color 0.5s ease-in-out;
+  position: relative;
 }
 header nav ul > li > a:hover {
   color: #d74d52;
-  position: relative;
 }
 header nav ul > li > a:hover::before {
   /*::before is a child elemeent here, like -space div instead of ::beforfe- */
@@ -209,7 +210,7 @@ nav ul :nth-of-type(2) > li:last-of-type {
 .dropdown-wrapper {
   position: relative;
 }
-.dropdown-wrappera::before {
+.dropdown-wrapper > a::before {
   right: 13px; /*So underline eff*/
 }
 
@@ -307,11 +308,6 @@ a.search:hover {
   background-size: auto, 1600px;
 }
 
-@media screen and (min-width: 1600px) {
-  .bg-slider {
-    background-size: auto, cover;
-  }
-}
 .bg-slider-section {
   display: flex;
   flex-direction: column;
@@ -323,6 +319,9 @@ a.search:hover {
 .slider-text-container {
   padding-top: 200px;
   padding-bottom: 200px;
+}
+.slider-text-container h1 {
+  font-size: 40px;
 }
 
 .header-paragraph {
@@ -362,15 +361,18 @@ main {
   text-align: center;
   margin-top: 110px;
 }
+.section-2000 h2 {
+  color: #262626;
+  font-size: 30px;
+  line-height: 45px;
+}
 
-.red-link {
+.red-link, .red-link-none {
   color: #d74d52;
   font-weight: 800;
 }
 
 .red-link-none {
-  color: #d74d52;
-  font-weight: 800;
   text-decoration: none;
 }
 
@@ -381,7 +383,15 @@ main {
   -moz-column-gap: 25px;
        column-gap: 25px;
 }
-.online-coaching-section article {
+.online-coaching-section p {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+.online-coaching-section a {
+  text-decoration: none;
+}
+
+.online-coaching_article {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -393,13 +403,22 @@ main {
   box-shadow: 0px 28px 65px 0px rgba(188, 188, 188, 0.25);
   text-align: center;
   justify-content: center;
+  transition: transform 0.5s ease-in-out;
 }
-.online-coaching-section article p {
-  padding-right: 25px;
-  padding-left: 25px;
+.online-coaching_article h3 {
+  transition: color 0.5s ease-in-out;
 }
-.online-coaching-section article a {
-  text-decoration: none;
+.online-coaching_article img {
+  transition: transform 0.5s ease-in-out;
+}
+.online-coaching_article:hover {
+  transform: translateY(-25px);
+}
+.online-coaching_article:hover h3 {
+  color: #d74d52;
+}
+.online-coaching_article:hover img {
+  transform: scale(1.1);
 }
 
 .happy-clients {
@@ -407,9 +426,10 @@ main {
   flex-direction: row;
   justify-content: space-around;
   margin: 0;
-  margin-bottom: 120px;
-  margin-top: 50px;
   align-items: center;
+  margin-top: 80px;
+  margin-bottom: 150px;
+  margin-left: 60px;
 }
 .happy-clients div {
   display: flex;
@@ -511,7 +531,6 @@ form h2 {
   background: #d74d52;
   padding: 18px 30px;
   border: none;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   border-radius: 4px;
@@ -569,4 +588,406 @@ form h2 {
 }
 .form-paragraph + p + div > img {
   min-width: 0;
+}
+
+.recent-courses-section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0;
+  align-items: center;
+  margin-top: 120px;
+}
+.recent-courses-section > h2 {
+  font-size: 30px;
+}
+.recent-courses-section > h2 + p {
+  text-align: center;
+  max-width: 685px;
+  margin-bottom: 80px;
+}
+
+.cards-container {
+  display: flex;
+  font-weight: 500;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  row-gap: 30px;
+}
+.cards-container article {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  box-shadow: 0px 28px 65px 0px rgba(188, 188, 188, 0.25);
+}
+.cards-container article img {
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+.cards-container article div {
+  padding: 30px 30px 50px;
+}
+.cards-container article div p {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.cards-container article div p > a {
+  text-decoration: none;
+  color: black;
+  font-family: "Now";
+  font-weight: 500;
+  font-size: 20px;
+}
+.cards-container article div p + a {
+  display: inline-block;
+  text-decoration: none;
+  color: #d74d52;
+  background: #f8dfe0;
+  padding: 2px 9px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cards-container .image-mask {
+  width: 100%;
+  overflow: hidden;
+}
+.cards-container article:hover img {
+  transform: scale(1.5);
+}
+
+.green-underline {
+  font-size: 30px;
+  position: relative;
+  font-weight: 600;
+}
+.green-underline::before {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  height: 10px;
+  left: 0;
+  right: -15px;
+  background-color: #39e17b;
+  z-index: 0;
+}
+.green-underline > span {
+  position: relative;
+  z-index: 1;
+}
+
+.teacher-section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+.teacher-section > h3 {
+  font-size: 20px;
+}
+.teacher-section-bg {
+  background: url(images/quote.png) center no-repeat;
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+.twitter-margin {
+  margin-left: 10px;
+}
+
+.visit-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0;
+  position: relative;
+}
+.visit-section-wrapper + div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0;
+}
+.visit-section-wrapper + div > img {
+  margin-top: 80px;
+  margin-bottom: 100px;
+  width: 200px;
+}
+
+.visit-section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0;
+  position: relative;
+  font-size: 20px;
+  font-weight: 600;
+  max-width: 650px;
+  padding: 0 40px 100px 30px;
+  box-shadow: 0px 28px 65px 0px rgba(188, 188, 188, 0.25);
+  margin-top: 70px;
+  margin-right: 55px;
+  background: #fff;
+  z-index: 1;
+}
+.visit-section > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+}
+.visit-section > div > h2 {
+  color: #fff;
+  background: #d74d52;
+  padding: 30px 50px;
+  margin-bottom: 70px;
+  margin-top: 0;
+  font: 400 30px "Segoe UI";
+}
+.visit-section p {
+  margin-top: 0;
+}
+.visit-section-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+.visit-section-bg img {
+  vertical-align: bottom;
+  width: 100%;
+}
+
+.visit-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0;
+  align-items: flex-start;
+}
+.visit-row div {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0;
+}
+
+.clock {
+  margin-right: 37px;
+}
+
+.gps {
+  margin-right: 30px;
+}
+
+.princeton {
+  font: 500 20px/30px "Now";
+}
+
+.learn-link {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.learn-upper {
+  margin-top: -10px;
+  margin-bottom: 50px;
+}
+
+.learn-down {
+  margin-top: -10px;
+}
+
+.view-map {
+  margin: auto;
+  margin-top: 10px;
+}
+.view-map span {
+  margin-right: 5px;
+}
+.view-map a {
+  font-size: 14px;
+}
+
+.image-strip {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0;
+  width: 100%;
+}
+.image-strip img {
+  min-width: 0;
+  flex: 1;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+footer div > img {
+  width: 147px;
+}
+footer ul {
+  padding: 0;
+}
+footer ul > li {
+  list-style: none;
+  display: inline-block;
+}
+footer ul > li > a {
+  text-decoration: none;
+  display: inline-block;
+}
+footer ul > li > a:hover {
+  color: #d74d52;
+}
+
+footer p {
+  flex: 1;
+}
+footer div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  flex: 1;
+}
+footer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0;
+  flex: 1;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 80px;
+  right: 50px;
+  z-index: 99; /*so it disappears under header?*/
+}
+
+@media screen and (min-width: 1600px) {
+  .bg-slider {
+    background-size: auto, cover;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .width-responsive, .slider-text-container, .section-2000, .online-coaching-section, .happy-clients, .recent-courses-section, .cards-container, .teacher-section, .visit-section-wrapper, .visit-section-wrapper + div, footer {
+    max-width: 960px;
+  }
+  nav ul:nth-of-type(2) > li:last-of-type {
+    margin-left: 0;
+  }
+  .visit-section {
+    width: 540px;
+  }
+  #img1 {
+    display: none;
+  }
+}
+@media screen and (max-width: 990px) {
+  .width-responsive, .slider-text-container, .section-2000, .online-coaching-section, .happy-clients, .recent-courses-section, .cards-container, .teacher-section, .visit-section-wrapper, .visit-section-wrapper + div, footer {
+    max-width: 720px;
+  }
+  nav ul:nth-of-type(1) {
+    display: none;
+  }
+  #hamburger {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+  }
+  .section-6500 {
+    margin-bottom: 60px;
+  }
+  #form-section {
+    flex-direction: column;
+    margin: 0 15px;
+  }
+  #form-left-column {
+    justify-content: center;
+  }
+  .form-background-horizontal {
+    background-position-y: top;
+    background-size: auto;
+  }
+  .form-left-box {
+    margin-top: 100px;
+    margin-bottom: 30px;
+  }
+  .visit-section {
+    width: 440px;
+    margin-right: 0;
+  }
+  #img1 {
+    display: none;
+  }
+  #img4 {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .width-responsive, .slider-text-container, .section-2000, .online-coaching-section, .happy-clients, .recent-courses-section, .cards-container, .teacher-section, .visit-section-wrapper, .visit-section-wrapper + div, footer {
+    max-width: 540px;
+  }
+  .online-coaching-section {
+    flex-direction: column;
+  }
+  .section-6500 {
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: flex-start;
+  }
+  .recent-cards {
+    flex-direction: column;
+  }
+  .visit-section-background {
+    width: 510px;
+    position: static;
+  }
+  .visit-section {
+    width: 510px;
+    margin: 0;
+  }
+  #form-section .flex-row {
+    flex-direction: column;
+  }
+  #form-section .input-box {
+    width: auto;
+  }
+  footer {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    padding: 30px 0;
+  }
+  footer ul {
+    align-self: stretch;
+  }
+}
+@media screen and (max-width: 575px) {
+  .width-responsive, .slider-text-container, .section-2000, .online-coaching-section, .happy-clients, .recent-courses-section, .cards-container, .teacher-section, .visit-section-wrapper, .visit-section-wrapper + div, footer {
+    max-width: initial;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  #img1 {
+    display: none;
+  }
+  #img3 {
+    display: none;
+  }
+  #img4 {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */
