@@ -1,12 +1,8 @@
 1) Scroll bar should start after the black header (not be over it or start underneath)
 2) Behvaiour of first image is incorrect - height of the whole section is too small and in certain screen sizes there's a thin line of different color between it and the section under it
 3) In dropdown menu when hoverwing near end, the animated pink line shows at the bottom of the menu container and not just on the li element
-4) Have to switch dropdown menu to work with JS 
 5) Have to add 2 image sliders (top and bottom)
 6) Have to add hover effects on bottom gallery
 7) Make the hover effects on nav stick once element is selected
-8) Rewrite CSS to SASS ------ DONE
-9) Fix 'Visit us' section box ------ DONE
-10) Find up and side arrows same as original
-11) Fix positioning of overlay effect on slider ------ DONE
 12) Fix social media icons not displaying 
+13) Fix media queries
