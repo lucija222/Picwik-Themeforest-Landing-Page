@@ -937,7 +937,7 @@ footer {
 
 //---------------------------MEDIA QUERIES
 @media screen and (min-width: 1600px) {
-    //CHECK THIS QUERY
+    //CHECK THIS QUERY 
     .bg-slider {
         background-size: auto, cover;
     }
@@ -970,7 +970,7 @@ footer {
         display: none;
     }
 
-    #hamburger {
+    .hamburger {
         display: flex;
         justify-content: center;
         height: 30px;
@@ -980,16 +980,16 @@ footer {
         margin-bottom: 60px;
     }
 
-    #form-section {
+    .form-section {
         flex-direction: column;
         margin: 0 15px;
     }
 
-    #form-left-column {
+    .form-left-column {
         justify-content: center;
     }
 
-    .form-background-horizontal {
+    .form-bg-horizontal {
         background-position-y: top;
         background-size: auto;
     }
@@ -1028,11 +1028,11 @@ footer {
         align-items: flex-start;
     }
 
-    .recent-cards {
+    .cards-container {
         flex-direction: column;
     }
 
-    .visit-section-background {
+    .visit-section-bg {
         width: 510px;
         position: static;
     }
@@ -1042,11 +1042,11 @@ footer {
         margin: 0;
     }
 
-    #form-section .flex-row {
+    .form-section .flex-row {
         flex-direction: column;
     }
 
-    #form-section .input-box {
+    .form-section .input-box {
         width: auto;
     }
 

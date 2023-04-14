@@ -906,7 +906,7 @@ footer ul {
   nav ul:nth-of-type(1) {
     display: none;
   }
-  #hamburger {
+  .hamburger {
     display: flex;
     justify-content: center;
     height: 30px;
@@ -914,14 +914,14 @@ footer ul {
   .section-6500 {
     margin-bottom: 60px;
   }
-  #form-section {
+  .form-section {
     flex-direction: column;
     margin: 0 15px;
   }
-  #form-left-column {
+  .form-left-column {
     justify-content: center;
   }
-  .form-background-horizontal {
+  .form-bg-horizontal {
     background-position-y: top;
     background-size: auto;
   }
@@ -952,10 +952,10 @@ footer ul {
     row-gap: 30px;
     align-items: flex-start;
   }
-  .recent-cards {
+  .cards-container {
     flex-direction: column;
   }
-  .visit-section-background {
+  .visit-section-bg {
     width: 510px;
     position: static;
   }
@@ -963,10 +963,10 @@ footer ul {
     width: 510px;
     margin: 0;
   }
-  #form-section .flex-row {
+  .form-section .flex-row {
     flex-direction: column;
   }
-  #form-section .input-box {
+  .form-section .input-box {
     width: auto;
   }
   footer {
