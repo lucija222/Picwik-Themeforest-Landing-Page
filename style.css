@@ -261,6 +261,15 @@ nav ul :nth-of-type(2) > li:last-of-type {
   margin: 0;
   margin-top: 25px;
   padding-top: 10px;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+.social-media-list a {
+  height: 15px;
+  width: 15px;
+}
+.social-media-list li:last-child {
+  margin-left: 20px;
 }
 .social-media-list a:hover::before {
   width: 0;
@@ -387,6 +396,7 @@ main {
        column-gap: 25px;
 }
 .online-coaching-section p {
+  max-width: 320px;
   padding-right: 25px;
   padding-left: 25px;
 }
@@ -498,6 +508,8 @@ main {
   min-width: 0;
 }
 .form-section input {
+  width: 0;
+  min-width: 0;
   flex: 1;
   font: 16px "Segoe UI";
 }
@@ -630,21 +642,21 @@ form h2 {
   width: 100%;
   transition: transform 0.5s ease-in-out;
 }
-.cards-container article div {
+.cards-container article div:nth-child(2) {
   padding: 30px 30px 50px;
 }
-.cards-container article div p {
+.cards-container article div:nth-child(2) p {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.cards-container article div p > a {
+.cards-container article div:nth-child(2) p > a {
   text-decoration: none;
   color: black;
   font-family: "Now";
   font-weight: 500;
   font-size: 20px;
 }
-.cards-container article div p + a {
+.cards-container article div:nth-child(2) p + a {
   display: inline-block;
   text-decoration: none;
   color: #D74D52;
@@ -801,14 +813,6 @@ form h2 {
   font-weight: 800;
 }
 
-.learn-upper {
-  margin: 10px 0 0;
-}
-
-.learn-down {
-  margin-top: -10px;
-}
-
 .view-map {
   margin: auto;
   margin-top: 10px;
@@ -889,7 +893,7 @@ footer ul {
   .width-responsive, .slider-text-container, .section-2000, .online-coaching-section, .happy-clients, .recent-courses-section, .cards-container, .teacher-section, .visit-section-wrapper, .visit-section-wrapper + div, footer {
     max-width: 960px;
   }
-  nav ul:nth-of-type(2) > li:last-of-type {
+  nav ul:nth-of-type(2) > li:last-child {
     margin-left: 0;
   }
   .visit-section {
@@ -906,7 +910,7 @@ footer ul {
   nav ul:nth-of-type(1) {
     display: none;
   }
-  #hamburger {
+  .hamburger {
     display: flex;
     justify-content: center;
     height: 30px;
@@ -914,14 +918,14 @@ footer ul {
   .section-6500 {
     margin-bottom: 60px;
   }
-  #form-section {
+  .form-section {
     flex-direction: column;
     margin: 0 15px;
   }
-  #form-left-column {
+  .form-left-column {
     justify-content: center;
   }
-  .form-background-horizontal {
+  .form-bg-horizontal {
     background-position-y: top;
     background-size: auto;
   }
@@ -952,10 +956,10 @@ footer ul {
     row-gap: 30px;
     align-items: flex-start;
   }
-  .recent-cards {
+  .cards-container {
     flex-direction: column;
   }
-  .visit-section-background {
+  .visit-section-bg {
     width: 510px;
     position: static;
   }
@@ -963,10 +967,10 @@ footer ul {
     width: 510px;
     margin: 0;
   }
-  #form-section .flex-row {
+  .form-section .flex-row {
     flex-direction: column;
   }
-  #form-section .input-box {
+  .form-section .input-box {
     width: auto;
   }
   footer {
