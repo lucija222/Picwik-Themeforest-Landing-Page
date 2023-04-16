@@ -139,7 +139,7 @@ header nav ul > li > a {
   position: relative;
 }
 header nav ul > li > a:hover {
-  color: #D74D52;
+  color: #d74d52;
 }
 header nav ul > li > a:hover::before {
   /*::before is a child elemeent here, like -space div instead of ::beforfe- */
@@ -148,7 +148,7 @@ header nav ul > li > a:hover::before {
 header nav ul > li > a:before {
   content: "";
   position: absolute;
-  background: #D74D52;
+  background: #d74d52;
   right: 0;
   bottom: 0;
   height: 2px;
@@ -345,7 +345,7 @@ a.search:hover {
 .button-white-red {
   display: inline-block;
   background: #fff;
-  color: #D74D52;
+  color: #d74d52;
   padding: 18px 30px;
   text-decoration: none;
   border-radius: 4px;
@@ -354,7 +354,7 @@ a.search:hover {
 }
 .button-white-red:hover {
   color: #fff;
-  background: #D74D52;
+  background: #d74d52;
   padding: 18px 30px;
 }
 
@@ -380,7 +380,7 @@ main {
 }
 
 .red-link, .red-link-none {
-  color: #D74D52;
+  color: #d74d52;
   font-weight: 800;
 }
 
@@ -428,7 +428,7 @@ main {
   transform: translateY(-25px);
 }
 .online-coaching_article:hover h3 {
-  color: #D74D52;
+  color: #d74d52;
 }
 .online-coaching_article:hover img {
   transform: scale(1.1);
@@ -451,16 +451,28 @@ main {
   margin: 0;
   align-items: center;
 }
-.happy-clients div p:first-child {
-  font-family: "Now";
-  font-weight: 600;
-  font-size: 40px;
-  margin: 0 10px 0;
-}
-.happy-clients div p:nth-child(2) {
+.happy-clients div p:nth-of-type(2) {
   font-family: "Now";
   font-weight: 500;
   font-size: 20px;
+}
+
+.happy-clients div .counter, .happy-clients div .counter + span {
+  font-family: "Now";
+  font-weight: 600;
+  font-size: 40px;
+}
+.happy-clients div .counter + span, .happy-clients div .counter + span + span {
+  padding-right: 15px;
+}
+.happy-clients div:first-of-type span {
+  color: #f28202;
+}
+.happy-clients div:nth-of-type(2) span {
+  color: #e25f64;
+}
+.happy-clients div:last-of-type span {
+  color: #3adc79;
 }
 
 .orange-blob {
@@ -543,7 +555,7 @@ form h2 {
 .button-red-white {
   display: inline-block;
   color: #fff;
-  background: #D74D52;
+  background: #d74d52;
   padding: 18px 30px;
   border: none;
   width: -moz-fit-content;
@@ -659,7 +671,7 @@ form h2 {
 .cards-container article div:nth-child(2) p + a {
   display: inline-block;
   text-decoration: none;
-  color: #D74D52;
+  color: #d74d52;
   background: #f8dfe0;
   padding: 2px 9px;
   font-size: 14px;
@@ -760,7 +772,7 @@ form h2 {
 }
 .visit-section div:first-child > h2 {
   color: #fff;
-  background: #D74D52;
+  background: #d74d52;
   padding: 30px 50px;
   margin-bottom: 70px;
   margin-top: 0;
@@ -856,7 +868,7 @@ footer ul > li > a {
   display: inline-block;
 }
 footer ul > li > a:hover {
-  color: #D74D52;
+  color: #d74d52;
 }
 
 footer p {

@@ -26,9 +26,8 @@
     @include font-faces("Now", "fonts/Now-Bold.woff2", bold, normal);
 }
 
-
 //------------------------------------VARIABLES
-$base-pink: #D74D52;
+$base-pink: #d74d52;
 $white: #fff;
 $dark-gray: #262626;
 
@@ -495,18 +494,37 @@ main {
         @include display-flex(row, space-evenly);
         align-items: center;
 
-        p:first-child {
-            font-family: "Now";
-            font-weight: 600;
-            font-size: 40px;
-            margin: 0 10px 0;
-        }
-
-        p:nth-child(2) {
+        p:nth-of-type(2) {
             font-family: "Now";
             font-weight: 500;
             font-size: 20px;
+
         }
+    }
+}
+
+.happy-clients div {
+    .counter {
+        font-family: "Now";
+        font-weight: 600;
+        font-size: 40px;
+
+        + span {
+            @extend .counter;
+            padding-right: 15px;
+        }
+    }
+
+    &:first-of-type span {
+        color: #f28202;
+    }
+
+    &:nth-of-type(2) span {
+        color: #e25f64;
+    }
+
+    &:last-of-type span {
+        color: #3adc79;
     }
 }
 
@@ -938,7 +956,7 @@ footer {
 
 //---------------------------MEDIA QUERIES
 @media screen and (min-width: 1600px) {
-    //CHECK THIS QUERY 
+    //CHECK THIS QUERY
     .bg-slider {
         background-size: auto, cover;
     }
