@@ -347,22 +347,135 @@ a.search:hover {
 }
 
 //------------------------SLIDER IN HEADER
+.slideshow-container {
+    position: relative;
+    overflow: hidden;
+}
+
 .bg-slider-1 {
     background: url(images/main_slider/overlay.png) 50% no-repeat,
         url(images/main_slider/slider333.png) top center/100% no-repeat; /*top center/100% no-repeat*/ /*no-repeat center center/cover; */
     background-size: auto, 1600px;
+    transform: translateX(0);
+    animation: slide-1 10s infinite running;
+    animation-delay: 4.5s;
+
+    .slider-text-container h1 {
+        max-width: 900px;
+    }
+
+    h1::before {
+        content: "";
+        animation: slider-1-text 10s infinite running;
+        // animation-delay: 4.5s;
+    }
 }
 
 .bg-slider-2 {
     background: url(images/main_slider/overlay.png) 50% no-repeat,
-        url(images/main_slider/slider444.png) top center/100% no-repeat; /*top center/100% no-repeat*/ /*no-repeat center center/cover; */
+        url(images/main_slider/slider444.png) top center/100% no-repeat;
     background-size: auto, 1600px;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    transform: translateX(100%);
+    animation: slide-2 10s infinite running;
+    animation-delay: 4.5s;
 
     .slider-text-container h1 {
         max-width: 700px;
     }
+
+    .slider-text-container h1::before {
+        content: "";
+        animation: slider-2-text 10s infinite running;
+        // animation-delay: 4.5s;
+    }
 }
 
+@keyframes slide-1 {
+    0% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    50% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    50.0001% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+}
+
+@keyframes slide-2 {
+    0% {
+        transform: translateX(100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+
+    50% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+
+    50.0001% {
+        transform: translateX(100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+
+    100% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+}
+
+@keyframes slider-1-text {
+    0% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    50% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    50.001% {
+        content: "Professional development for coaches and leaders";
+    }
+    100% {
+        content: "Professional development for coaches and leaders";
+    }
+}
+
+@keyframes slider-2-text {
+    0% {
+        content: "Professional development for coaches and leaders";
+    }
+    50% {
+        content: "Professional development for coaches and leaders";
+    }
+    50.001% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    100% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+}
+
+/* duration iteration-count play-state name
+10s infinite running slide
+*/
 .bg-slider-section {
     @include display-flex(column, center);
     justify-content: center;
@@ -509,7 +622,6 @@ main {
             font-family: "Now";
             font-weight: 500;
             font-size: 20px;
-
         }
     }
 }
