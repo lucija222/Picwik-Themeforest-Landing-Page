@@ -347,10 +347,20 @@ a.search:hover {
 }
 
 //------------------------SLIDER IN HEADER
-.bg-slider {
+.bg-slider-1 {
     background: url(images/main_slider/overlay.png) 50% no-repeat,
         url(images/main_slider/slider333.png) top center/100% no-repeat; /*top center/100% no-repeat*/ /*no-repeat center center/cover; */
     background-size: auto, 1600px;
+}
+
+.bg-slider-2 {
+    background: url(images/main_slider/overlay.png) 50% no-repeat,
+        url(images/main_slider/slider444.png) top center/100% no-repeat; /*top center/100% no-repeat*/ /*no-repeat center center/cover; */
+    background-size: auto, 1600px;
+
+    .slider-text-container h1 {
+        max-width: 700px;
+    }
 }
 
 .bg-slider-section {
@@ -363,7 +373,7 @@ a.search:hover {
     @extend .width-responsive;
     @extend .main-margin-mobile;
     padding: {
-        top: 200px;
+        top: 100px;
         bottom: 200px;
     }
 
@@ -375,7 +385,7 @@ a.search:hover {
 .header-paragraph {
     font-family: "Now";
     font-size: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 55px;
 }
 
 .button-white-red {
@@ -958,7 +968,11 @@ footer {
 //---------------------------MEDIA QUERIES
 @media screen and (min-width: 1600px) {
     //CHECK THIS QUERY
-    .bg-slider {
+    .bg-slider-1 {
+        background-size: auto, cover;
+    }
+
+    .bg-slider-2 {
         background-size: auto, cover;
     }
 }
