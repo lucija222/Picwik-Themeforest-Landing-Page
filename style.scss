@@ -355,6 +355,7 @@ a.search:hover {
 
 .bg-slider-section {
     @include display-flex(column, center);
+    justify-content: center;
     min-height: 800px;
 }
 
