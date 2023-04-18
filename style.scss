@@ -133,7 +133,8 @@ p {
 //-------------------------MAIN FLEX CONTAINER
 .flex-container {
     @include display-flex(column, stretch);
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
     height: 100vh;
 } /*places scroll bar under black header*/
 
@@ -243,9 +244,10 @@ nav ul {
 
 .dropdown-list {
     display: none;
+    z-index: 1;
     flex-direction: column;
     position: absolute;
-    background: #f5f8fb;
+    background: #fff;
     min-width: 138px;
     padding: 32px 0 10px;
 
