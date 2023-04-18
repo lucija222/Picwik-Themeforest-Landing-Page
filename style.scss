@@ -1276,6 +1276,10 @@ footer {
         width: auto;
     }
 
+    .inputs-container div {
+        flex-direction: column;
+    }
+
     footer {
         flex-direction: column;
         align-items: center;
