@@ -162,7 +162,7 @@ header {
 }
 
 header nav ul > li > a {
-    transition: color 0.5s ease-in-out;
+    transition: color 4.5s ease-in-out;
     position: relative;
 
     &:hover {
@@ -182,7 +182,7 @@ header nav ul > li > a {
         bottom: 0;
         height: 2px;
         width: 0;
-        transition: width 0.5s ease-in-out;
+        transition: width 4.5s ease-in-out;
     }
 }
 
@@ -347,10 +347,56 @@ a.search:hover {
 }
 
 //------------------------SLIDER IN HEADER
-.bg-slider {
+.slideshow-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-slider-1 {
     background: url(images/main_slider/overlay.png) 50% no-repeat,
         url(images/main_slider/slider333.png) top center/100% no-repeat; /*top center/100% no-repeat*/ /*no-repeat center center/cover; */
     background-size: auto, 1600px;
+    transform: translateX(0);
+    animation: slide-1 10s infinite running;
+    animation-delay: 4.5s;
+
+    .slider-text-container h1 {
+        max-width: 1000px;
+        line-height: 60px;
+        animation: slider-1-h1 10s infinite ease running;
+        animation-delay: 4.5s;
+    }
+
+    h1::before {
+        content: "Bringing You a positive and awakening perspective on your future";
+        animation: slider-1-text 10s infinite running;
+        animation-delay: 4.5s;
+    }
+}
+
+.bg-slider-2 {
+    background: url(images/main_slider/overlay.png) 50% no-repeat,
+        url(images/main_slider/slider444.png) top center/100% no-repeat;
+    background-size: auto, 1600px;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    transform: translateX(100%);
+    animation: slide-2 10s infinite running;
+    animation-delay: 4.5s;
+
+    .slider-text-container h1 {
+        max-width: 700px;
+        line-height: 60px;
+        animation: slider-2-h1 10s infinite running;
+        animation-delay: 4.5s;
+    }
+
+    .slider-text-container h1::before {
+        content: "Professional development for coaches and leaders";
+        animation: slider-2-text 10s infinite running;
+        animation-delay: 4.5s;
+    }
 }
 
 .bg-slider-section {
@@ -363,7 +409,7 @@ a.search:hover {
     @extend .width-responsive;
     @extend .main-margin-mobile;
     padding: {
-        top: 200px;
+        top: 100px;
         bottom: 200px;
     }
 
@@ -375,7 +421,7 @@ a.search:hover {
 .header-paragraph {
     font-family: "Now";
     font-size: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 55px;
 }
 
 .button-white-red {
@@ -392,6 +438,156 @@ a.search:hover {
         color: $white;
         background: $base-pink;
         padding: 18px 30px;
+    }
+}
+
+@keyframes slide-1 {
+    0% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    5%{
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    50% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    50.0001% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+    55% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    100% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+}
+
+@keyframes slide-2 {
+    0% {
+        transform: translateX(100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+    5% { 
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+    50% { 
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+    50.0001%  { 
+        transform: translateX(100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    55% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    100% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+}
+
+@keyframes slider-1-text {
+    0% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    5% { 
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    50% { 
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    50.0001%  { 
+        content: "Professional development for coaches and leaders";
+    }
+    55% {
+        content: "Professional development for coaches and leaders";
+    }
+    100% {
+        content: "Professional development for coaches and leaders";
+    }
+}
+
+@keyframes slider-2-text {
+    0% {
+        content: "Professional development for coaches and leaders";
+    }
+    5% { 
+        content: "Professional development for coaches and leaders";
+    }
+    50% { 
+        content: "Professional development for coaches and leaders";
+    }
+    50.0001%  { 
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    55% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    100% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+}
+
+@keyframes slider-1-h1 {
+    0% {
+        max-width: 1000px;
+    }
+    5% { 
+        max-width: 1000px;
+    }
+    50% { 
+        max-width: 1000px;
+    }
+    50.0001%  { 
+        max-width: 700px;
+    }
+    55% {
+        max-width: 700px;
+    }
+    100% {
+        max-width: 700px;
+    }
+}
+
+@keyframes slider-2-h1 {
+    0% {
+        max-width: 700px;
+    }
+    5% { 
+        max-width: 700px;
+    }
+    50% { 
+        max-width: 700px;
+    }
+    50.0001%  { 
+        max-width: 1000px;
+    }
+    55% {
+        max-width: 1000px;
+    }
+    100% {
+        max-width: 1000px;
     }
 }
 
@@ -457,14 +653,14 @@ main {
     box-shadow: 0px 28px 65px 0px rgb(188 188 188 / 25%);
     text-align: center;
     justify-content: center; //CHECK THIS LATER
-    transition: transform 0.5s ease-in-out;
+    transition: transform 4.5s ease-in-out;
 
     h3 {
-        transition: color 0.5s ease-in-out;
+        transition: color 4.5s ease-in-out;
     }
 
     img {
-        transition: transform 0.5s ease-in-out;
+        transition: transform 4.5s ease-in-out;
     }
 
     &:hover {
@@ -499,7 +695,6 @@ main {
             font-family: "Now";
             font-weight: 500;
             font-size: 20px;
-
         }
     }
 }
@@ -697,7 +892,7 @@ form h2 {
 
         img {
             width: 100%;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 4.5s ease-in-out;
         }
 
         div:nth-child(2) {
@@ -958,7 +1153,11 @@ footer {
 //---------------------------MEDIA QUERIES
 @media screen and (min-width: 1600px) {
     //CHECK THIS QUERY
-    .bg-slider {
+    .bg-slider-1 {
+        background-size: auto, cover;
+    }
+
+    .bg-slider-2 {
         background-size: auto, cover;
     }
 }
