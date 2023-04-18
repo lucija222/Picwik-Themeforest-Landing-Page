@@ -133,7 +133,6 @@ p {
 //-------------------------MAIN FLEX CONTAINER
 .flex-container {
     @include display-flex(column, stretch);
-    flex: 1;
     overflow: auto;
     height: 100vh;
 } /*places scroll bar under black header*/
@@ -1327,5 +1326,22 @@ footer {
 
     #img4 {
         display: none;
+    }
+}
+
+@media screen and (max-width: 460px){
+    .hamburger {
+        margin: {
+            right: 7px;
+            left: 5px;
+        }
+    }
+
+    .social-media-list {
+        column-gap: 6px;
+    }
+
+    .black-header {
+        min-width: 300px;
     }
 }
