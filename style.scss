@@ -134,7 +134,7 @@ p {
 .flex-container {
     @include display-flex(column, stretch);
     flex: 1;
-    // overflow: auto;
+    overflow: auto;
     height: 100vh;
 } /*places scroll bar under black header*/
 
@@ -153,7 +153,7 @@ header {
         display: inline-block;
         text-decoration: none;
         color: black;
-    } /*REMOVES ENTIRE HEADER TEXT-DECORATION*/
+    }
 
     + div {
         margin-top: 25px;
@@ -354,23 +354,23 @@ a.search:hover {
 
 .bg-slider-1 {
     background: url(images/main_slider/overlay.png) 50% no-repeat,
-        url(images/main_slider/slider333.png) top center/100% no-repeat; /*top center/100% no-repeat*/ /*no-repeat center center/cover; */
+        url(images/main_slider/slider333.png) top center/100% no-repeat;
     background-size: auto, 1600px;
     transform: translateX(0);
-    animation: slide-1 10s infinite running;
-    animation-delay: 4.5s;
+    // animation: slide-1 10s infinite running;
+    // animation-delay: 4.5s;
 
     .slider-text-container h1 {
         max-width: 1000px;
         line-height: 60px;
-        animation: slider-1-h1 10s infinite ease running;
-        animation-delay: 4.5s;
+        // animation: slider-1-h1 10s infinite ease running;
+        // animation-delay: 4.5s;
     }
 
     h1::before {
         content: "Bringing You a positive and awakening perspective on your future";
-        animation: slider-1-text 10s infinite running;
-        animation-delay: 4.5s;
+        // animation: slider-1-text 10s infinite running;
+        // animation-delay: 4.5s;
     }
 }
 
@@ -382,20 +382,20 @@ a.search:hover {
     inset: 0;
     width: 100%;
     transform: translateX(100%);
-    animation: slide-2 10s infinite running;
-    animation-delay: 4.5s;
+    // animation: slide-2 10s infinite running;
+    // animation-delay: 4.5s;
 
     .slider-text-container h1 {
         max-width: 700px;
         line-height: 60px;
-        animation: slider-2-h1 10s infinite running;
-        animation-delay: 4.5s;
+        // animation: slider-2-h1 10s infinite running;
+        // animation-delay: 4.5s;
     }
 
     .slider-text-container h1::before {
         content: "Professional development for coaches and leaders";
-        animation: slider-2-text 10s infinite running;
-        animation-delay: 4.5s;
+        // animation: slider-2-text 10s infinite running;
+        // animation-delay: 4.5s;
     }
 }
 
@@ -652,15 +652,15 @@ main {
     }
     box-shadow: 0px 28px 65px 0px rgb(188 188 188 / 25%);
     text-align: center;
-    justify-content: center; //CHECK THIS LATER
-    transition: transform 4.5s ease-in-out;
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
 
     h3 {
-        transition: color 4.5s ease-in-out;
+        transition: color 0.5s ease-in-out;
     }
 
     img {
-        transition: transform 4.5s ease-in-out;
+        transition: transform 0.5s ease-in-out;
     }
 
     &:hover {
@@ -682,9 +682,8 @@ main {
     @include display-flex(row, space-around);
     align-items: center;
     margin: {
-        top: 80px;
+        top: 70px;
         bottom: 150px;
-        left: 60px;
     }
 
     div {
@@ -700,6 +699,11 @@ main {
 }
 
 .happy-clients div {
+
+    p {
+        margin: 0;   
+    }
+
     .counter {
         font-family: "Now";
         font-weight: 600;
@@ -769,7 +773,6 @@ main {
     }
 
     input {
-        width: 0; //why?
         min-width: 0;
         flex: 1;
         font: 16px "Segoe UI";
@@ -853,7 +856,7 @@ form h2 {
         font: 500 20px "Now";
 
         + div > img {
-            // flex: 1;  - CHECK LATER "The display: block property on the parent element prevents flex from having an effect."
+            width: 100%;
             min-width: 0;
         }
     }
@@ -892,7 +895,7 @@ form h2 {
 
         img {
             width: 100%;
-            transition: transform 4.5s ease-in-out;
+            transition: transform 0.5s ease-in-out;
         }
 
         div:nth-child(2) {
@@ -1218,6 +1221,10 @@ footer {
         margin-bottom: 30px;
     }
 
+    .happy-clients div p:nth-child(3){
+        font-size: 15px;
+    }
+
     .visit-section {
         width: 440px;
         margin-right: 0;
@@ -1278,6 +1285,16 @@ footer {
 
     footer ul {
         align-self: stretch;
+    }
+
+    .happy-clients {
+        @include display-flex(column, flex-start);
+        row-gap: 30px;
+        margin: {
+            top: 80px;
+            bottom: 80px;
+            left: 40px;
+        }
     }
 }
 
