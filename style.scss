@@ -1057,11 +1057,11 @@ form h2 {
 }
 
 .clock {
-    margin-right: 37px;
+    margin-right: 35px;
 }
 
 .gps {
-    margin-right: 30px;
+    margin-right: 25px;
 }
 
 .princeton {
@@ -1175,7 +1175,7 @@ footer {
     }
 
     .visit-section {
-        width: 540px;
+        max-width: 540px;
     }
 
     #img1 {
@@ -1226,7 +1226,7 @@ footer {
     }
 
     .visit-section {
-        width: 440px;
+        max-width: 440px;
         margin-right: 0;
     }
 
@@ -1263,12 +1263,16 @@ footer {
     }
 
     .visit-section-bg {
-        width: 510px;
+        max-width: 510px;
         position: static;
     }
 
+    .visit-section-wrapper {
+        align-items: center;
+    }
+
     .visit-section {
-        width: 510px;
+        max-width: 510px;
         margin: 0;
     }
 
@@ -1313,10 +1317,6 @@ footer {
         padding-right: 15px;
     }
 
-    // .online-coaching-section {
-    //     row-gap: 40px;
-    // }
-    
     #img1 {
         display: none;
     }
