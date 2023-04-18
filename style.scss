@@ -161,7 +161,7 @@ header {
 }
 
 header nav ul > li > a {
-    transition: color 4.5s ease-in-out;
+    transition: color 0.5s ease-in-out;
     position: relative;
 
     &:hover {
@@ -181,7 +181,7 @@ header nav ul > li > a {
         bottom: 0;
         height: 2px;
         width: 0;
-        transition: width 4.5s ease-in-out;
+        transition: width 0.5s ease-in-out;
     }
 }
 
@@ -202,14 +202,10 @@ nav {
         transform: translate(0, 29px);
 
         + ul {
-            @include display-flex(row, space-evenly);
+            @include display-flex(row, center);
             flex-grow: 3;
-            margin: {
-                top: 25px;
-                right: 60px;
-                left: 60px;
-            }
-            padding-top: 10px;
+            margin-top: 25px;
+            column-gap: 35px;
         }
     }
 }
@@ -1173,6 +1169,10 @@ footer {
         margin-left: 0;
     }
 
+    .teacher-section-bg {
+        max-width: 920px;
+    }
+
     .visit-section {
         max-width: 540px;
     }
@@ -1222,6 +1222,10 @@ footer {
 
     .happy-clients div p:nth-child(3){
         font-size: 15px;
+    }
+
+    .teacher-section-bg {
+        max-width: 690px;
     }
 
     .visit-section {
