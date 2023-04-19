@@ -259,7 +259,8 @@ nav ul {
     visibility: hidden;
     opacity: 0;
     transform: translateY(50px);
-    transition: transform 0.4s ease-in-out, opacity ease-in-out 0.4s, visibility 0.4s, padding-top ease-in-out 0.2s;
+    transition: transform 0.4s ease-in-out, opacity ease-in-out 0.4s,
+        visibility 0.4s, padding-top ease-in-out 0.2s;
 
     > ul {
         @include display-flex(column, stretch);
@@ -275,7 +276,8 @@ nav ul {
     opacity: 1;
     visibility: visible;
     padding-top: 30px;
-    transition: transform 0.4s ease-in-out, opacity ease-in-out 0.4s, padding-top ease-in-out 0.2s;
+    transition: transform 0.4s ease-in-out, opacity ease-in-out 0.4s,
+        padding-top ease-in-out 0.2s;
 }
 
 //Hamburger menu
@@ -458,7 +460,7 @@ a.search:hover {
         background: url(images/main_slider/overlay.png) 50% no-repeat,
             url(images/main_slider/slider333.png) top center/100% no-repeat;
     }
-    5%{
+    5% {
         transform: translateX(-100%);
         background: url(images/main_slider/overlay.png) 50% no-repeat,
             url(images/main_slider/slider333.png) top center/100% no-repeat;
@@ -491,17 +493,17 @@ a.search:hover {
         background: url(images/main_slider/overlay.png) 50% no-repeat,
             url(images/main_slider/slider444.png) top center/100% no-repeat;
     }
-    5% { 
+    5% {
         transform: translateX(0);
         background: url(images/main_slider/overlay.png) 50% no-repeat,
             url(images/main_slider/slider444.png) top center/100% no-repeat;
     }
-    50% { 
+    50% {
         transform: translateX(0);
         background: url(images/main_slider/overlay.png) 50% no-repeat,
             url(images/main_slider/slider444.png) top center/100% no-repeat;
     }
-    50.0001%  { 
+    50.0001% {
         transform: translateX(100%);
         background: url(images/main_slider/overlay.png) 50% no-repeat,
             url(images/main_slider/slider333.png) top center/100% no-repeat;
@@ -522,13 +524,13 @@ a.search:hover {
     0% {
         content: "Bringing You a positive and awakening perspective on your future";
     }
-    5% { 
+    5% {
         content: "Bringing You a positive and awakening perspective on your future";
     }
-    50% { 
+    50% {
         content: "Bringing You a positive and awakening perspective on your future";
     }
-    50.0001%  { 
+    50.0001% {
         content: "Professional development for coaches and leaders";
     }
     55% {
@@ -543,13 +545,13 @@ a.search:hover {
     0% {
         content: "Professional development for coaches and leaders";
     }
-    5% { 
+    5% {
         content: "Professional development for coaches and leaders";
     }
-    50% { 
+    50% {
         content: "Professional development for coaches and leaders";
     }
-    50.0001%  { 
+    50.0001% {
         content: "Bringing You a positive and awakening perspective on your future";
     }
     55% {
@@ -564,13 +566,13 @@ a.search:hover {
     0% {
         max-width: 1000px;
     }
-    5% { 
+    5% {
         max-width: 1000px;
     }
-    50% { 
+    50% {
         max-width: 1000px;
     }
-    50.0001%  { 
+    50.0001% {
         max-width: 700px;
     }
     55% {
@@ -585,13 +587,13 @@ a.search:hover {
     0% {
         max-width: 700px;
     }
-    5% { 
+    5% {
         max-width: 700px;
     }
-    50% { 
+    50% {
         max-width: 700px;
     }
-    50.0001%  { 
+    50.0001% {
         max-width: 1000px;
     }
     55% {
@@ -619,6 +621,31 @@ main {
         color: $dark-gray;
         font-size: 30px;
         line-height: 45px;
+        max-width: 915px;
+
+        > a {
+            display: inline-block;
+            color: $base-pink;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+
+            &::before {
+                content: "";
+                background-color: $base-pink;
+                width: 507px;
+                height: 0.6px;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                transition: width ease-in-out 0.4s;
+            }
+
+            &:hover::before {
+                width: 0;
+                transition: width ease-in-out 0.4s;
+            }
+        }
     }
 }
 
@@ -710,9 +737,8 @@ main {
 }
 
 .happy-clients div {
-
     p {
-        margin: 0;   
+        margin: 0;
     }
 
     .counter {
@@ -1240,7 +1266,7 @@ footer {
         margin-bottom: 30px;
     }
 
-    .happy-clients div p:nth-child(3){
+    .happy-clients div p:nth-child(3) {
         font-size: 15px;
     }
 
@@ -1353,7 +1379,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 460px){
+@media screen and (max-width: 460px) {
     .hamburger {
         margin: {
             right: 7px;
