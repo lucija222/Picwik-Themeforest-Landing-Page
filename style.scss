@@ -1,4 +1,4 @@
-//-----------------------------------FONTS
+//------------------------------------------MIXINS
 @mixin font-faces($family, $src, $weight, $style) {
     font-family: $family;
     src: url($src);
@@ -6,6 +6,34 @@
     font-style: $style;
 }
 
+@mixin display-flex($direction, $styling) {
+    display: flex;
+    flex-direction: $direction;
+    @if $direction == row {
+        justify-content: $styling;
+    } @else if $direction == column {
+        align-items: $styling;
+    }
+    margin: 0;
+}
+
+@mixin underline-transition($width, $height) {
+    content: "";
+    background-color: $base-pink;
+    width: $width;
+    height: $height;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transition: width ease-in-out 0.4s;
+}
+
+@mixin underline-transition-hover($width) {
+    width: $width;
+    transition: width ease-in-out 0.4s;
+}
+
+//------------------------------------------FONTS
 @font-face {
     @include font-faces("Segoe UI", "fonts/SegoeUI.woff2", normal, normal);
 }
@@ -84,18 +112,6 @@ p {
     }
 }
 
-//---------------------------------FLEX
-@mixin display-flex($direction, $styling) {
-    display: flex;
-    flex-direction: $direction;
-    @if $direction == row {
-        justify-content: $styling;
-    } @else if $direction == column {
-        align-items: $styling;
-    }
-    margin: 0;
-}
-
 //---------------------------------BLACK HEADER
 .black-header {
     background: $dark-gray;
@@ -150,13 +166,7 @@ p {
 
 //-------------------------HEADER/NAVIGATION
 header {
-    z-index: 100; /*So that "go to top" arrow falls under it*/
-
-    * a {
-        display: inline-block;
-        text-decoration: none;
-        color: black;
-    }
+    z-index: 100;
 
     + div {
         margin-top: 25px;
@@ -165,27 +175,22 @@ header {
 }
 
 header nav ul > li > a {
-    transition: color 0.5s ease-in-out;
     position: relative;
+    display: inline-block;
+    color: #192836;
+    text-decoration: none;
 
     &:hover {
         color: $base-pink;
+        transition: color ease-in-out 0.4s;
 
         &::before {
-            /*::before is a child elemeent here, like -space div instead of ::beforfe- */
-            width: 50%;
+            @include underline-transition-hover(50%);
         }
     }
 
     &:before {
-        content: "";
-        position: absolute;
-        background: $base-pink;
-        right: 0;
-        bottom: 0;
-        height: 2px;
-        width: 0;
-        transition: width 0.5s ease-in-out;
+        @include underline-transition(0, 2px);
     }
 }
 
@@ -241,7 +246,7 @@ nav ul {
     position: relative;
 
     > a::before {
-        right: 13px; /*So underline eff*/
+        right: 13px;
     }
 }
 
@@ -454,156 +459,6 @@ a.search:hover {
     }
 }
 
-@keyframes slide-1 {
-    0% {
-        transform: translateX(0);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-    5% {
-        transform: translateX(-100%);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-    50% {
-        transform: translateX(-100%);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-    50.0001% {
-        transform: translateX(0);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider444.png) top center/100% no-repeat;
-    }
-    55% {
-        transform: translateX(-100%);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-    100% {
-        transform: translateX(-100%);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-}
-
-@keyframes slide-2 {
-    0% {
-        transform: translateX(100%);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider444.png) top center/100% no-repeat;
-    }
-    5% {
-        transform: translateX(0);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider444.png) top center/100% no-repeat;
-    }
-    50% {
-        transform: translateX(0);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider444.png) top center/100% no-repeat;
-    }
-    50.0001% {
-        transform: translateX(100%);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-    55% {
-        transform: translateX(0);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-    100% {
-        transform: translateX(0);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-}
-
-@keyframes slider-1-text {
-    0% {
-        content: "Bringing You a positive and awakening perspective on your future";
-    }
-    5% {
-        content: "Bringing You a positive and awakening perspective on your future";
-    }
-    50% {
-        content: "Bringing You a positive and awakening perspective on your future";
-    }
-    50.0001% {
-        content: "Professional development for coaches and leaders";
-    }
-    55% {
-        content: "Professional development for coaches and leaders";
-    }
-    100% {
-        content: "Professional development for coaches and leaders";
-    }
-}
-
-@keyframes slider-2-text {
-    0% {
-        content: "Professional development for coaches and leaders";
-    }
-    5% {
-        content: "Professional development for coaches and leaders";
-    }
-    50% {
-        content: "Professional development for coaches and leaders";
-    }
-    50.0001% {
-        content: "Bringing You a positive and awakening perspective on your future";
-    }
-    55% {
-        content: "Bringing You a positive and awakening perspective on your future";
-    }
-    100% {
-        content: "Bringing You a positive and awakening perspective on your future";
-    }
-}
-
-@keyframes slider-1-h1 {
-    0% {
-        max-width: 1000px;
-    }
-    5% {
-        max-width: 1000px;
-    }
-    50% {
-        max-width: 1000px;
-    }
-    50.0001% {
-        max-width: 700px;
-    }
-    55% {
-        max-width: 700px;
-    }
-    100% {
-        max-width: 700px;
-    }
-}
-
-@keyframes slider-2-h1 {
-    0% {
-        max-width: 700px;
-    }
-    5% {
-        max-width: 700px;
-    }
-    50% {
-        max-width: 700px;
-    }
-    50.0001% {
-        max-width: 1000px;
-    }
-    55% {
-        max-width: 1000px;
-    }
-    100% {
-        max-width: 1000px;
-    }
-}
-
 //-----------------------------------------MAIN
 main {
     @include display-flex(column, center);
@@ -631,19 +486,11 @@ main {
             position: relative;
 
             &::before {
-                content: "";
-                background-color: $base-pink;
-                width: 507px;
-                height: 0.6px;
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                transition: width ease-in-out 0.4s;
+                @include underline-transition(507px, 0.6px);
             }
 
             &:hover::before {
-                width: 0;
-                transition: width ease-in-out 0.4s;
+                @include underline-transition-hover(0);
             }
         }
     }
@@ -791,10 +638,7 @@ main {
     &::before {
         content: "";
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        inset: 0;
         background-color: #ffffffe8;
     }
 }
@@ -835,8 +679,25 @@ main {
     min-width: 0;
 }
 
-form h2 {
-    font-size: 30px;
+form {
+    h2 {
+        font-size: 30px;
+    }
+    p:first-of-type a {
+        text-decoration: none;
+        color: $base-pink;
+        font-weight: bold;
+        position: relative;
+
+        &:hover::before {
+            @include underline-transition-hover(0);
+        }
+
+        &::before {
+            @include underline-transition(49px, 1px);
+            top: 22px;
+        }
+    }
 }
 
 .button-red-white {
@@ -1017,6 +878,22 @@ form h2 {
         background: url(images/quote.png) center no-repeat;
         margin-bottom: 40px;
         font-size: 30px;
+
+        > a {
+            display: inline-block;
+            position: relative;
+            color: $base-pink;
+            text-decoration: none;
+            font-weight: bold;
+
+            &::before {
+                @include underline-transition(420px, 0.6px);
+            }
+
+            &:hover::before {
+                @include underline-transition-hover(0);
+            }
+        }
     }
 }
 
@@ -1393,5 +1270,156 @@ footer {
 
     .black-header {
         min-width: 300px;
+    }
+}
+
+//-----------------------------------KEYFRAMES
+@keyframes slide-1 {
+    0% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    5% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    50% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    50.0001% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+    55% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    100% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+}
+
+@keyframes slide-2 {
+    0% {
+        transform: translateX(100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+    5% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+    50% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+    50.0001% {
+        transform: translateX(100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    55% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    100% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+}
+
+@keyframes slider-1-text {
+    0% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    5% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    50% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    50.0001% {
+        content: "Professional development for coaches and leaders";
+    }
+    55% {
+        content: "Professional development for coaches and leaders";
+    }
+    100% {
+        content: "Professional development for coaches and leaders";
+    }
+}
+
+@keyframes slider-2-text {
+    0% {
+        content: "Professional development for coaches and leaders";
+    }
+    5% {
+        content: "Professional development for coaches and leaders";
+    }
+    50% {
+        content: "Professional development for coaches and leaders";
+    }
+    50.0001% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    55% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    100% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+}
+
+@keyframes slider-1-h1 {
+    0% {
+        max-width: 1000px;
+    }
+    5% {
+        max-width: 1000px;
+    }
+    50% {
+        max-width: 1000px;
+    }
+    50.0001% {
+        max-width: 700px;
+    }
+    55% {
+        max-width: 700px;
+    }
+    100% {
+        max-width: 700px;
+    }
+}
+
+@keyframes slider-2-h1 {
+    0% {
+        max-width: 700px;
+    }
+    5% {
+        max-width: 700px;
+    }
+    50% {
+        max-width: 700px;
+    }
+    50.0001% {
+        max-width: 1000px;
+    }
+    55% {
+        max-width: 1000px;
+    }
+    100% {
+        max-width: 1000px;
     }
 }
