@@ -6,10 +6,6 @@
     font-style: $style;
 }
 
-* {
-    outline: 1px solid rgb(255, 149, 10);
-}
-
 @font-face {
     @include font-faces("Segoe UI", "fonts/SegoeUI.woff2", normal, normal);
 }
@@ -357,20 +353,20 @@ a.search:hover {
         url(images/main_slider/slider333.png) top center/100% no-repeat;
     background-size: auto, 1600px;
     transform: translateX(0);
-    // animation: slide-1 10s infinite running;
-    // animation-delay: 4.5s;
+    animation: slide-1 10s infinite running;
+    animation-delay: 4.5s;
 
     .slider-text-container h1 {
         max-width: 1000px;
         line-height: 60px;
-        // animation: slider-1-h1 10s infinite ease running;
-        // animation-delay: 4.5s;
+        animation: slider-1-h1 10s infinite ease running;
+        animation-delay: 4.5s;
     }
 
     h1::before {
         content: "Bringing You a positive and awakening perspective on your future";
-        // animation: slider-1-text 10s infinite running;
-        // animation-delay: 4.5s;
+        animation: slider-1-text 10s infinite running;
+        animation-delay: 4.5s;
     }
 }
 
@@ -382,20 +378,20 @@ a.search:hover {
     inset: 0;
     width: 100%;
     transform: translateX(100%);
-    // animation: slide-2 10s infinite running;
-    // animation-delay: 4.5s;
+    animation: slide-2 10s infinite running;
+    animation-delay: 4.5s;
 
     .slider-text-container h1 {
         max-width: 700px;
         line-height: 60px;
-        // animation: slider-2-h1 10s infinite running;
-        // animation-delay: 4.5s;
+        animation: slider-2-h1 10s infinite running;
+        animation-delay: 4.5s;
     }
 
     .slider-text-container h1::before {
         content: "Professional development for coaches and leaders";
-        // animation: slider-2-text 10s infinite running;
-        // animation-delay: 4.5s;
+        animation: slider-2-text 10s infinite running;
+        animation-delay: 4.5s;
     }
 }
 
