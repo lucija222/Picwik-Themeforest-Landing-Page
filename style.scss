@@ -115,19 +115,23 @@ p {
 }
 
 .button-white-green {
-    background: #82b440;
+    background-color: #82b440;
     box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25);
     color: $white;
-    padding: 5px 20px 7px 20px;
+    padding: 5px 19px 9px 20px;
     border-radius: 4px;
     margin: {
-        top: 11.5px;
-        right: 17px;
-        bottom: 11.5px;
+        top: 11px;
+        right: 19px;
+        bottom: 11px;
     }
-    font-size: 15px;
+    font-size: 14px;
     float: right;
     text-decoration: none;
+
+    &:hover {
+        background-color: #7bac3b;
+    }
 }
 
 //-------------------------MAIN FLEX CONTAINER
@@ -444,7 +448,7 @@ a.search:hover {
     &:hover {
         color: $white;
         background: $base-pink;
-        padding: 18px 30px;
+        transition: all ease-in-out 0.4s;
     }
 }
 
@@ -819,6 +823,10 @@ form h2 {
     border-radius: 4px;
     font: 16px "Segoe UI";
     font-weight: 800;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .select-button-margin {
