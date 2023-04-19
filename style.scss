@@ -6,6 +6,10 @@
     font-style: $style;
 }
 
+* {
+    outline: 1px solid rgb(255, 149, 10);
+}
+
 @font-face {
     @include font-faces("Segoe UI", "fonts/SegoeUI.woff2", normal, normal);
 }
@@ -133,16 +137,15 @@ p {
 //-------------------------MAIN FLEX CONTAINER
 .flex-container {
     @include display-flex(column, stretch);
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: auto;
     height: 100vh;
-} /*places scroll bar under black header*/
+}
 
 //----------------------CLASS FOR EXTENDING
 .width-responsive {
     width: 100%;
     max-width: 1140px;
-    margin: 0 15px;
+    // margin: 0 15px;
 }
 
 //-------------------------HEADER/NAVIGATION
@@ -1310,8 +1313,8 @@ footer {
         margin: {
             top: 80px;
             bottom: 80px;
-            left: 40px;
         }
+        padding-left: 40px;
     }
 }
 
