@@ -1,4 +1,4 @@
-//-----------------------------------FONTS
+//------------------------------------------MIXINS
 @mixin font-faces($family, $src, $weight, $style) {
     font-family: $family;
     src: url($src);
@@ -6,6 +6,35 @@
     font-style: $style;
 }
 
+@mixin display-flex($direction, $styling) {
+    display: flex;
+    flex-direction: $direction;
+    @if $direction == row {
+        justify-content: $styling;
+    } @else if $direction == column {
+        align-items: $styling;
+    }
+    margin: 0;
+}
+
+@mixin underline-transition($width, $height) {
+    content: "";
+    background-color: $base-pink;
+    width: $width;
+    height: $height;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transition: width ease-in-out 0.4s;
+}
+
+@mixin underline-transition-hover($width) {
+    width: $width;
+    transition: width ease-in-out 0.4s;
+}
+
+
+//------------------------------------------FONTS
 @font-face {
     @include font-faces("Segoe UI", "fonts/SegoeUI.woff2", normal, normal);
 }
@@ -84,18 +113,6 @@ p {
     }
 }
 
-//---------------------------------FLEX
-@mixin display-flex($direction, $styling) {
-    display: flex;
-    flex-direction: $direction;
-    @if $direction == row {
-        justify-content: $styling;
-    } @else if $direction == column {
-        align-items: $styling;
-    }
-    margin: 0;
-}
-
 //---------------------------------BLACK HEADER
 .black-header {
     background: $dark-gray;
@@ -115,19 +132,23 @@ p {
 }
 
 .button-white-green {
-    background: #82b440;
+    background-color: #82b440;
     box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25);
     color: $white;
-    padding: 5px 20px 7px 20px;
+    padding: 5px 19px 9px 20px;
     border-radius: 4px;
     margin: {
-        top: 11.5px;
-        right: 17px;
-        bottom: 11.5px;
+        top: 11px;
+        right: 19px;
+        bottom: 11px;
     }
-    font-size: 15px;
+    font-size: 14px;
     float: right;
     text-decoration: none;
+
+    &:hover {
+        background-color: #7bac3b;
+    }
 }
 
 //-------------------------MAIN FLEX CONTAINER
@@ -146,13 +167,7 @@ p {
 
 //-------------------------HEADER/NAVIGATION
 header {
-    z-index: 100; /*So that "go to top" arrow falls under it*/
-
-    * a {
-        display: inline-block;
-        text-decoration: none;
-        color: black;
-    }
+    z-index: 100;
 
     + div {
         margin-top: 25px;
@@ -161,27 +176,22 @@ header {
 }
 
 header nav ul > li > a {
-    transition: color 0.5s ease-in-out;
     position: relative;
+    display: inline-block;
+    color: #192836;
+    text-decoration: none;
 
     &:hover {
         color: $base-pink;
+        transition: color ease-in-out 0.4s;
 
         &::before {
-            /*::before is a child elemeent here, like -space div instead of ::beforfe- */
-            width: 50%;
+            @include underline-transition-hover(50%);
         }
     }
 
-    &:before {
-        content: "";
-        position: absolute;
-        background: $base-pink;
-        right: 0;
-        bottom: 0;
-        height: 2px;
-        width: 0;
-        transition: width 0.5s ease-in-out;
+    &::before {
+        @include underline-transition(0, 2px);
     }
 }
 
@@ -237,18 +247,26 @@ nav ul {
     position: relative;
 
     > a::before {
-        right: 13px; /*So underline eff*/
+        right: 13px;
     }
 }
 
 .dropdown-list {
-    display: none;
+    display: flex;
     z-index: 1;
     flex-direction: column;
     position: absolute;
     background: #fff;
     min-width: 138px;
-    padding: 32px 0 10px;
+    padding: {
+        top: 20px;
+        bottom: 10px;
+    }
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.4s ease-in-out, opacity ease-in-out 0.4s,
+        visibility 0.4s, padding-top ease-in-out 0.2s;
 
     > ul {
         @include display-flex(column, stretch);
@@ -260,7 +278,12 @@ nav ul {
 }
 
 .dropdown-wrapper:hover .dropdown-list {
-    display: flex;
+    transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+    padding-top: 30px;
+    transition: transform 0.4s ease-in-out, opacity ease-in-out 0.4s,
+        padding-top ease-in-out 0.2s;
 }
 
 //Hamburger menu
@@ -433,157 +456,7 @@ a.search:hover {
     &:hover {
         color: $white;
         background: $base-pink;
-        padding: 18px 30px;
-    }
-}
-
-@keyframes slide-1 {
-    0% {
-        transform: translateX(0);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-    5%{
-        transform: translateX(-100%);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-    50% {
-        transform: translateX(-100%);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-    50.0001% {
-        transform: translateX(0);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider444.png) top center/100% no-repeat;
-    }
-    55% {
-        transform: translateX(-100%);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-    100% {
-        transform: translateX(-100%);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-}
-
-@keyframes slide-2 {
-    0% {
-        transform: translateX(100%);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider444.png) top center/100% no-repeat;
-    }
-    5% { 
-        transform: translateX(0);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider444.png) top center/100% no-repeat;
-    }
-    50% { 
-        transform: translateX(0);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider444.png) top center/100% no-repeat;
-    }
-    50.0001%  { 
-        transform: translateX(100%);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-    55% {
-        transform: translateX(0);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-    100% {
-        transform: translateX(0);
-        background: url(images/main_slider/overlay.png) 50% no-repeat,
-            url(images/main_slider/slider333.png) top center/100% no-repeat;
-    }
-}
-
-@keyframes slider-1-text {
-    0% {
-        content: "Bringing You a positive and awakening perspective on your future";
-    }
-    5% { 
-        content: "Bringing You a positive and awakening perspective on your future";
-    }
-    50% { 
-        content: "Bringing You a positive and awakening perspective on your future";
-    }
-    50.0001%  { 
-        content: "Professional development for coaches and leaders";
-    }
-    55% {
-        content: "Professional development for coaches and leaders";
-    }
-    100% {
-        content: "Professional development for coaches and leaders";
-    }
-}
-
-@keyframes slider-2-text {
-    0% {
-        content: "Professional development for coaches and leaders";
-    }
-    5% { 
-        content: "Professional development for coaches and leaders";
-    }
-    50% { 
-        content: "Professional development for coaches and leaders";
-    }
-    50.0001%  { 
-        content: "Bringing You a positive and awakening perspective on your future";
-    }
-    55% {
-        content: "Bringing You a positive and awakening perspective on your future";
-    }
-    100% {
-        content: "Bringing You a positive and awakening perspective on your future";
-    }
-}
-
-@keyframes slider-1-h1 {
-    0% {
-        max-width: 1000px;
-    }
-    5% { 
-        max-width: 1000px;
-    }
-    50% { 
-        max-width: 1000px;
-    }
-    50.0001%  { 
-        max-width: 700px;
-    }
-    55% {
-        max-width: 700px;
-    }
-    100% {
-        max-width: 700px;
-    }
-}
-
-@keyframes slider-2-h1 {
-    0% {
-        max-width: 700px;
-    }
-    5% { 
-        max-width: 700px;
-    }
-    50% { 
-        max-width: 700px;
-    }
-    50.0001%  { 
-        max-width: 1000px;
-    }
-    55% {
-        max-width: 1000px;
-    }
-    100% {
-        max-width: 1000px;
+        transition: all ease-in-out 0.4s;
     }
 }
 
@@ -604,16 +477,29 @@ main {
         color: $dark-gray;
         font-size: 30px;
         line-height: 45px;
+        max-width: 915px;
+
+        > a {
+            display: inline-block;
+            color: $base-pink;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+
+            &::before {
+                @include underline-transition(507px, 0.6px);
+            }
+
+            &:hover::before {
+                @include underline-transition-hover(0);
+            }
+        }
     }
 }
 
 .red-link {
     color: $base-pink;
     font-weight: 800;
-}
-
-.red-link-none {
-    @extend .red-link;
     text-decoration: none;
 }
 
@@ -695,9 +581,8 @@ main {
 }
 
 .happy-clients div {
-
     p {
-        margin: 0;   
+        margin: 0;
     }
 
     .counter {
@@ -750,10 +635,7 @@ main {
     &::before {
         content: "";
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        inset: 0;
         background-color: #ffffffe8;
     }
 }
@@ -794,8 +676,25 @@ main {
     min-width: 0;
 }
 
-form h2 {
-    font-size: 30px;
+form {
+    h2 {
+        font-size: 30px;
+    }
+    p:first-of-type a {
+        text-decoration: none;
+        color: $base-pink;
+        font-weight: bold;
+        position: relative;
+
+        &:hover::before {
+            @include underline-transition-hover(0);
+        }
+
+        &::before {
+            @include underline-transition(49px, 1px);
+            top: 22px;
+        }
+    }
 }
 
 .button-red-white {
@@ -808,6 +707,10 @@ form h2 {
     border-radius: 4px;
     font: 16px "Segoe UI";
     font-weight: 800;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .select-button-margin {
@@ -972,6 +875,22 @@ form h2 {
         background: url(images/quote.png) center no-repeat;
         margin-bottom: 40px;
         font-size: 30px;
+
+        > a {
+            display: inline-block;
+            position: relative;
+            color: $base-pink;
+            text-decoration: none;
+            font-weight: bold;
+
+            &::before {
+                @include underline-transition(420px, 0.6px);
+            }
+
+            &:hover::before {
+                @include underline-transition-hover(0);
+            }
+        }
     }
 }
 
@@ -1069,6 +988,22 @@ form h2 {
     text-decoration: none;
     font-size: 16px;
     font-weight: 800;
+
+    &::after {
+        content: "＞";
+        margin-left: 0;
+        transition: margin-left ease-in-out 0.4s;
+    }
+
+    &:hover {
+        color: $base-pink;
+        transition: color ease-in-out 0.4s;
+
+        &::after {
+            margin-left: 6px;
+            transition: margin-left ease-in-out 0.4s;
+        }
+    }
 }
 
 .view-map {
@@ -1081,6 +1016,17 @@ form h2 {
 
     a {
         font-size: 16px;
+
+        &::after {
+            content: "＞";
+            // transform: translateX(0);
+            // transition: transform ease-in-out 0.4s;
+        }
+
+        // &:hover::after {
+        //         transform: translateX(6px);
+        //         transition: transform ease-in-out 0.4s;
+        //     }
     }
 }
 
@@ -1221,7 +1167,7 @@ footer {
         margin-bottom: 30px;
     }
 
-    .happy-clients div p:nth-child(3){
+    .happy-clients div p:nth-child(3) {
         font-size: 15px;
     }
 
@@ -1334,7 +1280,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 460px){
+@media screen and (max-width: 460px) {
     .hamburger {
         margin: {
             right: 7px;
@@ -1348,5 +1294,156 @@ footer {
 
     .black-header {
         min-width: 300px;
+    }
+}
+
+//-----------------------------------KEYFRAMES
+@keyframes slide-1 {
+    0% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    5% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    50% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    50.0001% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+    55% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    100% {
+        transform: translateX(-100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+}
+
+@keyframes slide-2 {
+    0% {
+        transform: translateX(100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+    5% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+    50% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider444.png) top center/100% no-repeat;
+    }
+    50.0001% {
+        transform: translateX(100%);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    55% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+    100% {
+        transform: translateX(0);
+        background: url(images/main_slider/overlay.png) 50% no-repeat,
+            url(images/main_slider/slider333.png) top center/100% no-repeat;
+    }
+}
+
+@keyframes slider-1-text {
+    0% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    5% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    50% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    50.0001% {
+        content: "Professional development for coaches and leaders";
+    }
+    55% {
+        content: "Professional development for coaches and leaders";
+    }
+    100% {
+        content: "Professional development for coaches and leaders";
+    }
+}
+
+@keyframes slider-2-text {
+    0% {
+        content: "Professional development for coaches and leaders";
+    }
+    5% {
+        content: "Professional development for coaches and leaders";
+    }
+    50% {
+        content: "Professional development for coaches and leaders";
+    }
+    50.0001% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    55% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+    100% {
+        content: "Bringing You a positive and awakening perspective on your future";
+    }
+}
+
+@keyframes slider-1-h1 {
+    0% {
+        max-width: 1000px;
+    }
+    5% {
+        max-width: 1000px;
+    }
+    50% {
+        max-width: 1000px;
+    }
+    50.0001% {
+        max-width: 700px;
+    }
+    55% {
+        max-width: 700px;
+    }
+    100% {
+        max-width: 700px;
+    }
+}
+
+@keyframes slider-2-h1 {
+    0% {
+        max-width: 700px;
+    }
+    5% {
+        max-width: 700px;
+    }
+    50% {
+        max-width: 700px;
+    }
+    50.0001% {
+        max-width: 1000px;
+    }
+    55% {
+        max-width: 1000px;
+    }
+    100% {
+        max-width: 1000px;
     }
 }
