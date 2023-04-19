@@ -189,7 +189,7 @@ header nav ul > li > a {
         }
     }
 
-    &:before {
+    &::before {
         @include underline-transition(0, 2px);
     }
 }
@@ -499,10 +499,6 @@ main {
 .red-link {
     color: $base-pink;
     font-weight: 800;
-}
-
-.red-link-none {
-    @extend .red-link;
     text-decoration: none;
 }
 
@@ -991,6 +987,22 @@ form {
     text-decoration: none;
     font-size: 16px;
     font-weight: 800;
+
+    &::after {
+        content: "＞";
+        margin-left: 0;
+        transition: margin-left ease-in-out 0.4s;
+    }
+
+    &:hover {
+        color: $base-pink;
+        transition: color ease-in-out 0.4s;
+
+        &::after {
+            margin-left: 6px;
+            transition: margin-left ease-in-out 0.4s;
+        }
+    }
 }
 
 .view-map {
@@ -1003,6 +1015,17 @@ form {
 
     a {
         font-size: 16px;
+
+        &::after {
+            content: "＞";
+            // transform: translateX(0);
+            // transition: transform ease-in-out 0.4s;
+        }
+
+        // &:hover::after {
+        //         transform: translateX(6px);
+        //         transition: transform ease-in-out 0.4s;
+        //     }
     }
 }
 
