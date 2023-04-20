@@ -33,7 +33,6 @@
     transition: width ease-in-out 0.4s;
 }
 
-
 //------------------------------------------FONTS
 @font-face {
     @include font-faces("Segoe UI", "fonts/SegoeUI.woff2", normal, normal);
@@ -421,7 +420,7 @@ a.search:hover {
 .bg-slider-section {
     @include display-flex(column, center);
     justify-content: center;
-    min-height: 800px;
+    min-height: 900px;
 }
 
 .slider-text-container {
@@ -1035,9 +1034,20 @@ form {
     @include display-flex(row, space-evenly);
     width: 100%;
 
-    img {
-        min-width: 0;
-        flex: 1;
+    div {
+        display: flex;
+        width: 25%;
+        overflow: hidden;
+
+        &:hover img {
+            transform: scale(1.5);
+        }
+
+        img {
+            min-width: 0;
+            flex: 1;
+            transition: transform 0.4s ease-in-out;
+        }
     }
 }
 
@@ -1124,7 +1134,11 @@ footer {
         max-width: 540px;
     }
 
-    #img1 {
+    .image-strip div {
+        width: 33.33%;
+    }
+
+    #img2 {
         display: none;
     }
 }
@@ -1180,11 +1194,15 @@ footer {
         margin-right: 0;
     }
 
-    #img1 {
+    .image-strip div {
+        width: 50%;
+    }
+
+    #img2 {
         display: none;
     }
 
-    #img4 {
+    #img3 {
         display: none;
     }
 }
@@ -1267,7 +1285,11 @@ footer {
         padding-right: 15px;
     }
 
-    #img1 {
+    .image-strip div {
+        width: 100%;
+    }
+
+    #img2 {
         display: none;
     }
 
