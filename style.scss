@@ -1079,6 +1079,7 @@ form {
         background-color: rgba($color: $white, $alpha: 0.5);
         width: 90px;
         height: 90px;
+        padding: 25px;
         border-radius: 50%;
 
         // &:hover {
@@ -1102,6 +1103,7 @@ form {
         background-color: rgba($color: $white, $alpha: 0.5);
         width: 90px;
         height: 90px;
+        padding: 25px;
         border-radius: 50%;
 
         // &:hover {
@@ -1166,12 +1168,11 @@ footer {
     position: fixed;
     bottom: 80px;
     right: 50px;
-    z-index: 99; /*so it disappears under header?*/
+    z-index: 99; 
 }
 
 //---------------------------MEDIA QUERIES
 @media screen and (min-width: 1600px) {
-    //CHECK THIS QUERY
     .bg-slider-1 {
         background-size: auto, cover;
     }
