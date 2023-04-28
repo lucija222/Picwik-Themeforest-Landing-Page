@@ -1,57 +1,77 @@
 //--------------number counter
-let counterElements: NodeListOf<HTMLElement> =
-    document.querySelectorAll(".counter");
+import { counterElements, counterCallback } from "./counter.js";
 
-counterElements.forEach((counter: HTMLElement): void => {
-    const startValue = 0;
-    const dataset: string = counter.dataset.endValue!;
-    const endValue = parseInt(dataset);
-    const duration = 2500;
-    let startTime: number | null = null;
+counterElements.forEach(counterCallback);
 
-    const numberCounterAnimation = (timestamp: number): void => {
-        if (!startTime) {
-            startTime = timestamp;
-        } else if (startTime) {
-            const elapsedTime = timestamp - startTime;
-            const progress = Math.min(elapsedTime / duration, 1);
-            const value = Math.floor(progress * (endValue - startValue));
-            counter.textContent = value.toString();
-            if (value < endValue) {
-                requestAnimationFrame(numberCounterAnimation);
-            }
-        }
-    };
-
-    const start = (timestamp: number): void => {
-        startTime = timestamp;
-        requestAnimationFrame(numberCounterAnimation);
-    };
-
-    requestAnimationFrame(start);
-});
 
 //--------------------gallery anchor hover
-const imgIcons = document.querySelectorAll(".anchor img");
 
-imgIcons.forEach((imgElement) => {
-    imgElement.addEventListener("mouseenter", (e) => {
-        e.stopPropagation();
-        const target = e.target as HTMLImageElement;
-        if (target.src.includes("images/gallery_slider/img-icon-white.png")) {
-            target.src = "images/gallery_slider/img-icon-pink.png";
-        } else if (target.src.includes("images/gallery_slider/play-icon-white.png")) {
-            target.src = "images/gallery_slider/play-icon-pink.png";
-        }
-    });
+import { imgIcons, galleryCallback } from "./footer-gallery.js";
 
-    imgElement.addEventListener("mouseleave", (e) => {
-        e.stopPropagation();
-        const target = e.target as HTMLImageElement;
-        if (target.src.includes("images/gallery_slider/img-icon-pink.png")) {
-            target.src = "images/gallery_slider/img-icon-white.png";
-        } else if (target.src.includes("images/gallery_slider/play-icon-pink.png")) {
-            target.src = "images/gallery_slider/play-icon-white.png";
-        }
-    });
-});
+imgIcons.forEach(galleryCallback);
+
+
+//--------------------Header-nimation
+
+
+// const slideshowContainer: HTMLElement = document.querySelector(
+//     ".slideshow-container"
+// )!;
+// const bgSlider1: HTMLElement = document.querySelector(".bg-slider-1")!;
+// const bgSlider2: HTMLElement = document.querySelector(".bg-slider-2")!;
+
+// setTimeout(() => {
+//     console.log(1);
+//     bgSlider1.classList.add("slider-1-animation-part1");
+//     bgSlider2.classList.add("slider-2-animation-part1");
+// }, 4500);
+
+// bgSlider1.addEventListener("animationend", (e) => {
+//     e.stopPropagation();
+//     const animation = e as AnimationEvent;
+//     const animationName = animation.animationName;
+//     console.log(animationName);
+
+//     if (animationName.includes("TESTING-slide-1_P1")) {
+//         setTimeout(() => {
+//             console.log("One-One");
+//             bgSlider1.classList.replace(
+//                 "slider-1-animation-part1",
+//                 "slider-1-animation-part2"
+//             );
+//         }, 4500);
+//     } else if (animationName.includes("TESTING-slide-1_P2")) {
+//         setTimeout(() => {
+//             console.log("One-Two");
+//             bgSlider1.classList.replace(
+//                 "slider-1-animation-part2",
+//                 "slider-1-animation-part1"
+//             );
+//         }, 4500);
+//     }
+// });
+
+// bgSlider2.addEventListener("animationend", (e) => {
+//     e.stopPropagation();
+//     const animation = e as AnimationEvent;
+//     const animationName = animation.animationName;
+//     console.log(animationName);
+
+//     if (animationName.includes("TESTING-slide-2_P1")) {
+//         setTimeout(() => {
+//             console.log("Two-One");
+//             bgSlider2.classList.replace(
+//                 "slider-2-animation-part1",
+//                 "slider-2-animation-part2"
+//             );
+//         }, 4500);
+//     } else if (animationName.includes("TESTING-slide-2_P2")) {
+//         setTimeout(() => {
+//             console.log("Two-Two");
+//             bgSlider2.classList.replace(
+//                 "slider-2-animation-part2",
+//                 "slider-2-animation-part1"
+//             );
+//         }, 4500);
+//     }
+// });
