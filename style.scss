@@ -1118,14 +1118,32 @@ footer {
     @extend .width-responsive;
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 13px;
+    // flex: 1;
 
-    div > img {
-        width: 147px;
+    div {
+        @include display-flex(row, center);
+        flex: 1;
+
+        > img {
+            width: 133px;
+        }
+    }
+
+    p {
+        flex: 1;
+        text-align: end;
     }
 
     ul {
+        @include display-flex(row, flex-start);
+        flex: 1;
         padding: 0;
+        column-gap: 35px;
+
+        li:nth-child(3) a {
+            width: 77px;
+        }
 
         > li {
             list-style: none;
@@ -1140,22 +1158,6 @@ footer {
                 }
             }
         }
-    }
-}
-
-footer {
-    p {
-        flex: 1;
-    }
-
-    div {
-        @include display-flex(row, center);
-        flex: 1;
-    }
-
-    ul {
-        @include display-flex(row, space-evenly);
-        flex: 1;
     }
 }
 
@@ -1268,6 +1270,16 @@ footer {
     #img4 {
         display: none;
     }
+
+    footer p {
+        max-width: 210px;
+        text-align: center;
+    }
+
+    footer ul {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -1326,9 +1338,9 @@ footer {
         padding: 30px 0;
     }
 
-    footer ul {
-        align-self: stretch;
-    }
+    // footer ul {
+    //     justify-content: center;
+    // }
 
     .happy-clients {
         @include display-flex(column, flex-start);
